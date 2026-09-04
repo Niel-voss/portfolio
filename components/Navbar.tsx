@@ -56,8 +56,8 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               className={`text-sm font-medium transition-colors duration-200 py-1 ${link.active
-                  ? "text-[#a855f7] border-b-2 border-[#a855f7]"
-                  : "text-gray-300 hover:text-white"
+                ? "text-[#a855f7] border-b-2 border-[#a855f7]"
+                : "text-gray-300 hover:text-white"
                 }`}
             >
               {link.name}
@@ -122,8 +122,8 @@ export default function Navbar() {
       {/* Mobile Dropdown Menu (Animated Grid approach) */}
       <div
         className={`lg:hidden grid transition-all duration-300 ease-in-out ${isMobileMenuOpen
-            ? "grid-rows-[1fr] opacity-100 mt-4"
-            : "grid-rows-[0fr] opacity-0 mt-0"
+          ? "grid-rows-[1fr] opacity-100 mt-4"
+          : "grid-rows-[0fr] opacity-0 mt-0"
           }`}
       >
         <div className="overflow-hidden">
@@ -135,8 +135,8 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
                 className={`text-base font-medium px-3 py-2.5 rounded-lg transition-colors ${link.active
-                    ? "text-[#a855f7] bg-[#a855f7]/10"
-                    : "text-gray-300 hover:text-white hover:bg-white/5"
+                  ? "text-[#a855f7] bg-[#a855f7]/10"
+                  : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
               >
                 {link.name}
