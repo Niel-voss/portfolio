@@ -127,13 +127,14 @@ export default function Navbar() {
           }`}
       >
         <div className="overflow-hidden">
-          <div className="bg-[#0a0a0f] rounded-lg border border-white/10 p-4 flex flex-col gap-4 shadow-xl">
+          {/* Aligned background color to #0d0d14 to match the hero section floating card */}
+          <div className="bg-[#0d0d14]/95 backdrop-blur-md rounded-2xl border border-white/10 p-5 flex flex-col gap-4 shadow-xl">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`text-base font-medium px-2 py-2 rounded-md transition-colors ${link.active
+                className={`text-base font-medium px-3 py-2.5 rounded-lg transition-colors ${link.active
                     ? "text-[#a855f7] bg-[#a855f7]/10"
                     : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
@@ -143,28 +144,11 @@ export default function Navbar() {
             ))}
             <div className="h-[1px] bg-white/10 w-full my-2"></div>
 
-            {/* Mobile Contact Button */}
-            <Link
-              href="/contact"
+            {/* Reused the component for mobile to guarantee visual consistency */}
+            <GetInTouchButton
+              className="w-full py-3.5"
               onClick={() => setIsMobileMenuOpen(false)}
-              className="bg-[#a855f7] text-center text-white px-5 py-3 rounded-lg flex items-center justify-center gap-2 font-medium transition-colors hover:bg-[#9333ea]"
-            >
-              Get in touch
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="-mt-0.5"
-              >
-                <line x1="22" y1="2" x2="11" y2="13"></line>
-                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-              </svg>
-            </Link>
+            />
           </div>
         </div>
       </div>

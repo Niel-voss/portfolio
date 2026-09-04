@@ -5,12 +5,14 @@ interface GetInTouchButtonProps {
   href?: string;
   onClick?: () => void;
   className?: string;
+  asButton?: boolean; // Added so you can trigger clicks without losing the href route if needed
 }
 
 export default function GetInTouchButton({
   href = "/contact",
   onClick,
   className = "",
+  asButton = false,
 }: GetInTouchButtonProps) {
   const buttonContent = (
     <>
@@ -35,15 +37,15 @@ export default function GetInTouchButton({
 
   const baseStyles = `
     group inline-flex items-center justify-center gap-2 
-    bg-[#8b5cf6] hover:bg-[#7c3aed] text-white 
-    px-5 py-2.5 rounded-xl text-sm font-medium tracking-wide
+    bg-[#a855f7] hover:bg-[#9333ea] text-white 
+    px-6 py-2.5 rounded-full text-sm font-medium tracking-wide
     transition-all duration-200 ease-in-out
-    shadow-sm hover:shadow-md active:scale-95
+    shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_20px_rgba(168,85,247,0.5)] active:scale-95
     ${className}
   `;
 
-  // Render as a Link if href is provided, otherwise render as a standard button
-  if (onClick) {
+  // Render strictly as a button (e.g., for forms or specific click events)
+  if (asButton) {
     return (
       <button onClick={onClick} className={baseStyles}>
         {buttonContent}
@@ -51,8 +53,9 @@ export default function GetInTouchButton({
     );
   }
 
+  // Render as a Next.js Link (can also accept an onClick to close mobile menus)
   return (
-    <Link href={href} className={baseStyles}>
+    <Link href={href} onClick={onClick} className={baseStyles}>
       {buttonContent}
     </Link>
   );
