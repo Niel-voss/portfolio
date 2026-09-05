@@ -1,131 +1,127 @@
 import React from "react";
-import Link from "next/link";
 
-export default function ProjectsSection() {
-  const projects = [
+export default function ProcessSection() {
+  const steps = [
     {
-      title: "Vendly",
-      description: "A P2P marketplace for UNIBEN students to buy and sell fairly used items.",
-      techStack: ["Next.js", "TypeScript", "Tailwind"],
-      link: "#",
+      number: "01",
+      title: "Discover",
+      description: "Understand your goals, audience, and challenges through research and meaningful conversations.",
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      ),
     },
     {
-      title: "University of Miradelle",
-      description: "RBAC system for a university with role-based access, audit logs and more.",
-      techStack: ["Next.js", "Prisma", "PostgreSQL"],
-      link: "#",
+      number: "02",
+      title: "Design",
+      description: "Craft intuitive user experiences and clean interfaces that solve real problems.",
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
+          <line x1="14" y1="5" x2="19" y2="10"></line>
+          <line x1="16" y1="20" x2="22" y2="20"></line>
+        </svg>
+      ),
     },
     {
-      title: "Past Questions App",
-      description: "A mobile app for UNIBEN past questions (with monetization planned).",
-      techStack: ["React Native", "Node.js", "MongoDB"],
-      link: "#",
+      number: "03",
+      title: "Build",
+      description: "Write clean, scalable code and build fast, reliable products with modern technologies.",
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <polyline points="16 18 22 12 16 6"></polyline>
+          <polyline points="8 6 2 12 8 18"></polyline>
+        </svg>
+      ),
+    },
+    {
+      number: "04",
+      title: "Deliver",
+      description: "Test, deploy, and iterate based on feedback to ensure continuous improvement.",
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l.5-.5M22 2c0 0-1.5 3-4 6l-6.5 6.5a2.12 2.12 0 0 1-3 0 2.12 2.12 0 0 1 0-3L15 5c3-2.5 6-4 6-4Z"></path>
+        </svg>
+      ),
     },
   ];
 
   return (
-    <section className="w-full min-h-[80vh] bg-[#07070a] text-white py-16 lg:py-24 px-6 md:px-10 overflow-x-hidden border-t border-white/5 font-sans">
-      <div className="max-w-7xl mx-auto w-full">
+    <section className="w-full bg-[#07070a] text-white overflow-x-hidden font-sans">
 
-        {/* Main Grid: 1 col on mobile, 12 cols on desktop */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
+      {/* ================= THE DEMARCATION LINE ================= */}
+      <div className="w-full h-px bg-white/5"></div>
 
-          {/* ================= LEFT COLUMN: Text Info (Col Span 3) ================= */}
-          <div className="col-span-1 lg:col-span-3 flex flex-col items-start">
-            {/* Tag */}
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#a855f7]/10 text-[#a855f7] text-[11px] font-bold tracking-widest uppercase mb-5 w-max">
-              FEATURED PROJECTS
+      {/* Section Padding applied inside the wrapper so the line stays at the absolute top */}
+      <div className="py-16 lg:py-24 px-6 md:px-10">
+        <div className="max-w-7xl mx-auto w-full">
+
+          {/* Main Layout Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+            {/* ================= LEFT COLUMN: Header Info ================= */}
+            <div className="col-span-1 lg:col-span-3 flex flex-col items-start">
+
+              {/* Tag */}
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#a855f7]/10 text-[#a855f7] text-[11px] font-bold tracking-widest uppercase mb-5 w-max">
+                PROCESS / HOW I WORK
+              </div>
+
+              {/* Heading */}
+              <h2 className="text-3xl md:text-4xl lg:text-[2.25rem] font-bold leading-[1.2] mb-5 tracking-tight">
+                How I turn ideas <br className="hidden lg:block" />
+                <span className="text-[#a855f7]">into products.</span>
+              </h2>
+
+              {/* Description */}
+              <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+                A simple, collaborative process that helps ensure we build the right solution—together.
+              </p>
+
             </div>
 
-            {/* Heading */}
-            <h2 className="text-3xl md:text-4xl font-bold leading-[1.2] mb-4 tracking-tight">
-              Some things <br className="hidden lg:block" /> I've built
-            </h2>
+            {/* ================= RIGHT COLUMN: Process Cards ================= */}
+            <div className="col-span-1 lg:col-span-9 relative">
 
-            {/* Description */}
-            <p className="text-gray-400 text-sm leading-relaxed mb-8">
-              A few selected projects that showcase my skills, problem-solving approach and love for clean design and functionality.
-            </p>
+              {/* Horizontal Connecting Line (Only visible on large screens when grid is 1 row) */}
+              <div className="hidden lg:block absolute top-[85px] left-8 right-8 h-[1px] bg-[#a855f7]/30 z-0"></div>
 
-            {/* Desktop Button (Hidden on Mobile) */}
-            <Link
-              href="/projects"
-              className="hidden lg:inline-flex items-center justify-center gap-2 border border-white/20 hover:bg-white/5 transition-colors rounded-full px-6 py-2.5 text-sm font-medium text-white"
-            >
-              View all projects
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </Link>
-          </div>
+              {/* Cards Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 relative z-10">
+                {steps.map((step, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#0a0a0f] border border-white/5 rounded-2xl p-6 lg:p-7 flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1 duration-300 relative group"
+                  >
 
-          {/* ================= RIGHT COLUMN: Project Cards (Col Span 9) ================= */}
-          <div className="col-span-1 lg:col-span-9">
-            {/* Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.map((project, index) => (
-                <div
-                  key={index}
-                  className="bg-[#0a0a0f] border border-white/5 rounded-2xl overflow-hidden flex flex-col group hover:border-white/10 transition-colors shadow-lg"
-                >
-                  {/* Image Placeholder */}
-                  <div className="w-full aspect-[4/3] bg-gradient-to-br from-[#1a1a24] to-[#0d0d14] relative flex items-center justify-center overflow-hidden border-b border-white/5">
-                    {/* Placeholder Icon to look professional while waiting for real images */}
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-white/10 group-hover:scale-110 transition-transform duration-500">
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                      <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                      <polyline points="21 15 16 10 5 21"></polyline>
-                    </svg>
-                  </div>
+                    {/* Step Number Badge (Top Left Corner) */}
+                    <div className="absolute top-4 left-4 w-7 h-7 rounded-full bg-[#a855f7]/10 flex items-center justify-center border border-[#a855f7]/20">
+                      <span className="text-[#a855f7] text-[10px] font-bold tracking-wide">
+                        {step.number}
+                      </span>
+                    </div>
 
-                  {/* Card Content */}
-                  <div className="p-6 flex flex-col flex-grow">
-                    {/* Title & Link Icon */}
-                    <Link href={project.link} className="flex items-center justify-between group/link mb-3">
-                      <h3 className="text-lg font-bold text-gray-100 group-hover/link:text-[#a855f7] transition-colors">
-                        {project.title}
-                      </h3>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-500 group-hover/link:text-[#a855f7] transition-colors">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                      </svg>
-                    </Link>
+                    {/* Icon */}
+                    <div className="text-[#a855f7] mt-8 mb-6 group-hover:scale-110 transition-transform duration-300">
+                      {step.icon}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg font-bold text-gray-100 mb-3">
+                      {step.title}
+                    </h3>
 
                     {/* Description */}
-                    <p className="text-gray-400 text-sm leading-relaxed flex-grow">
-                      {project.description}
+                    <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
+                      {step.description}
                     </p>
 
-                    {/* Tech Stack Pills */}
-                    <div className="flex flex-wrap gap-2 mt-6">
-                      {project.techStack.map((tech, i) => (
-                        <span
-                          key={i}
-                          className="bg-white/5 border border-white/5 text-gray-300 text-[11px] font-medium px-3 py-1.5 rounded-full"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
 
-            {/* Mobile Button (Hidden on Desktop) */}
-            <div className="mt-8 flex justify-center lg:hidden">
-              <Link
-                href="/projects"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/20 hover:bg-white/5 transition-colors rounded-full px-6 py-3.5 text-sm font-medium text-white"
-              >
-                View all projects
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </Link>
             </div>
 
           </div>

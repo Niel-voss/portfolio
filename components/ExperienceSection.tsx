@@ -100,32 +100,37 @@ export default function ExperienceSection() {
 
           {/* ================= RIGHT COLUMN: Timeline ================= */}
           <div className="col-span-1 lg:col-span-8 mt-4 lg:mt-0">
-            <div className="flex flex-col gap-12">
+            {/* Removed gap-12 here, moving spacing to pb-12 on the children for exact math */}
+            <div className="flex flex-col">
               {experiences.map((exp, index) => {
                 const isLast = index === experiences.length - 1;
 
                 return (
-                  <div key={index} className="flex items-start gap-5 md:gap-8 relative group">
+                  <div
+                    key={index}
+                    className={`flex items-stretch gap-5 md:gap-8 relative group ${!isLast ? "pb-12 md:pb-16" : ""}`}
+                  >
 
                     {/* Timeline Axis (Line & Glow Dot) */}
-                    <div className="w-4 shrink-0 flex flex-col items-center pt-[24px] relative">
-                      {/* Glowing Dot */}
+                    <div className="w-4 shrink-0 flex flex-col items-center pt-6 relative">
+
+                      {/* Glowing Dot (Center is perfectly at 32px from top) */}
                       <div className="w-4 h-4 rounded-full bg-[#a855f7] ring-[6px] ring-[#07070a] shadow-[0_0_15px_rgba(168,85,247,0.8)] relative z-20"></div>
 
                       {/* Connecting Line */}
-                      {/* Math: starts at center of dot (24+8=32px) and spans exactly to the center of the next dot across the gap-12 (-80px) */}
+                      {/* Starts at 32px (dot center) and stretches down exactly 32px into the next row to hit its dot center */}
                       {!isLast && (
-                        <div className="absolute top-[32px] -bottom-[80px] left-1/2 -translate-x-1/2 w-[2px] bg-white/10 z-0"></div>
+                        <div className="absolute top-[32px] -bottom-[32px] left-1/2 -translate-x-1/2 w-[2px] bg-white/10 z-0"></div>
                       )}
                     </div>
 
-                    {/* Prominent Icon Box */}
-                    <div className="w-14 h-14 md:w-16 md:h-16 shrink-0 rounded-2xl bg-[#0a0a0f] border border-white/5 flex items-center justify-center text-[#a855f7] shadow-md z-10 transition-transform group-hover:scale-105 duration-300">
+                    {/* Prominent Icon Box (self-start keeps it from stretching) */}
+                    <div className="w-14 h-14 md:w-16 md:h-16 shrink-0 self-start rounded-2xl bg-[#0a0a0f] border border-white/5 flex items-center justify-center text-[#a855f7] shadow-md z-10 transition-transform group-hover:scale-105 duration-300">
                       {exp.icon}
                     </div>
 
-                    {/* Content Details */}
-                    <div className="flex-1 flex flex-col pt-1">
+                    {/* Content Details (self-start keeps it from stretching) */}
+                    <div className="flex-1 flex flex-col pt-1 self-start">
 
                       {/* Header row: Title and Date */}
                       <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-1 xl:gap-4 mb-2">
