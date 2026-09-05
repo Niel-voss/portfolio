@@ -1,5 +1,6 @@
 import Link from "next/link";
 import DownloadCvBtn from "./DownloadCvBtn";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
@@ -83,19 +84,22 @@ export default function HeroSection() {
               <path d="M0,0 Q60,10 60,60 L60,130 Q60,150 100,150" />
             </svg>
 
-            {/* Main Portrait Image */}
             <div className="relative w-full aspect-[4/5] rounded-b-3xl overflow-hidden shadow-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1531384441138-2736e62e0919?q=80&w=1000&auto=format&fit=crop"
+              <Image
+                src="/portfolioIMG.webp" // Update extension if you converted to .webp or .jpg
                 alt="Developer Portrait"
-                className="w-full h-full object-cover object-top"
+                fill
+                priority
+                className="object-cover object-top"
               />
+
+
               {/* Fade out gradient to blend image bottom smoothly into the background */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#07070a] via-[#07070a]/20 to-transparent"></div>
             </div>
 
             {/* Floating Info Card (Badge) */}
-            <div className="absolute -bottom-8 lg:bottom-12 right-0 lg:-right-20 bg-[#0d0d14]/90 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center gap-4 shadow-2xl z-30 w-[90%] sm:w-auto left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0">
+            <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 lg:bottom-12 lg:-left-20 lg:translate-x-0 bg-[#0d0d14]/90 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center gap-4 shadow-2xl z-30 w-max max-w-[90%] sm:w-auto">
               {/* Code Icon Container */}
               <div className="w-12 h-12 shrink-0 rounded-full bg-[#a855f7]/10 flex items-center justify-center text-[#a855f7]">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -115,6 +119,6 @@ export default function HeroSection() {
         </div>
 
       </div>
-    </section>
+    </section >
   );
 }
