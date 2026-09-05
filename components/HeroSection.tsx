@@ -78,7 +78,7 @@ export default function HeroSection() {
           <div className="relative w-full max-w-[340px] lg:max-w-[420px] z-10 flex flex-col items-center">
 
             {/* Hand-drawn Doodle (Responsive Positioning) */}
-            <div className="absolute -top-4 -left-8 lg:top-16 lg:-left-24 transform -rotate-[8deg] flex flex-col items-center z-30">
+            <div className="absolute -top-4 left-4 md:left-2 lg:top-16 lg:-left-24 transform -rotate-[8deg] flex flex-col items-center z-30">
               <p className="font-sans italic text-gray-400 text-sm lg:text-base opacity-80 whitespace-nowrap mb-1">
                 Just a dev <br /> building his dreams...
               </p>
