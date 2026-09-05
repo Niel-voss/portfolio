@@ -20,7 +20,7 @@ export default function ProjectsSection() {
     },
     {
       title: "Past Questions App",
-      description: "A mobile app for UNIBEN past questions (with monetization planned).",
+      description: "A mobile app for UNIBEN past questions",
       techStack: ["React Native", "Node.js", "MongoDB"],
       link: "#",
     },
