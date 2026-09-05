@@ -9,6 +9,7 @@ export default function ProjectsSection() {
       description: "A P2P marketplace for UNIBEN students to buy and sell fairly used items.",
       techStack: ["Next.js", "TypeScript", "Tailwind"],
       link: "#",
+      image: "/vendly.webp"
     },
     {
       title: "University of Miradelle",
