@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ProjectsSection() {
   const projects = [
@@ -11,9 +12,10 @@ export default function ProjectsSection() {
     },
     {
       title: "University of Miradelle",
-      description: "RBAC system for a university with role-based access, audit logs and more.",
+      description: "RBAC system for a university with role-based access, middleware resource protection, audit logs and more.",
       techStack: ["Next.js", "Prisma", "PostgreSQL"],
       link: "https://rbac-project-flame.vercel.app/",
+      image: "/rbac.webp",
     },
     {
       title: "Past Questions App",
@@ -75,14 +77,23 @@ export default function ProjectsSection() {
                     key={index}
                     className="bg-[#0a0a0f] border border-white/5 rounded-2xl overflow-hidden flex flex-col group hover:border-white/10 transition-colors shadow-lg"
                   >
-                    {/* Image Placeholder */}
+                    {/* Project Preview */}
                     <div className="w-full aspect-[4/3] bg-gradient-to-br from-[#1a1a24] to-[#0d0d14] relative flex items-center justify-center overflow-hidden border-b border-white/5">
-                      {/* Placeholder Icon */}
-                      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-white/10 group-hover:scale-110 transition-transform duration-500">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
-                        <polyline points="21 15 16 10 5 21"></polyline>
-                      </svg>
+                      {project.image ? (
+                        <Image
+                          src={project.image}
+                          alt={`${project.title} preview`}
+                          fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 33vw, 25vw"
+                          className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        />
+                      ) : (
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="text-white/10 group-hover:scale-110 transition-transform duration-500">
+                          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                          <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                          <polyline points="21 15 16 10 5 21"></polyline>
+                        </svg>
+                      )}
                     </div>
 
                     {/* Card Content */}
