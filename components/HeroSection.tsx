@@ -86,12 +86,14 @@ export default function HeroSection() {
 
             <div className="relative w-full aspect-[4/5] rounded-b-3xl overflow-hidden shadow-2xl">
               <Image
-                src="/portfolioIMG.webp" // Update extension if you converted to .webp or .jpg
+                src="/portfolioIMG.webp"
                 alt="Developer Portrait"
                 fill
                 priority
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover object-top"
               />
+
 
 
               {/* Fade out gradient to blend image bottom smoothly into the background */}
