@@ -25,7 +25,7 @@ export default function HeroSection() {
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-4 mb-10 lg:mb-12">
             <Link
-              href="/projects"
+              href="/#projects"
               className="w-full sm:w-auto bg-[#a855f7] hover:bg-[#9333ea] text-white px-8 py-3.5 rounded-full flex items-center justify-center gap-2 text-sm font-medium transition-all shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)]"
             >
               View My Projects
