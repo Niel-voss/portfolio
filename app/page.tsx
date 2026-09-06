@@ -6,6 +6,7 @@ import ProjectsSection from "@/components/ProjectSection";
 import TechStackSection from "@/components/TechStackSection";
 import Footer from "@/components/Footer";
 import SkillsExpertiseSection from "@/components/SkillsExpertiseSection";
+import ProcessSection from "@/components/ProcessSection";
 export default function Home() {
   return (
     <>
@@ -13,7 +14,7 @@ export default function Home() {
       <HeroSection />
       <AboutSection />
       <TechStackSection />
-      <ProjectsSection />
+      <ProcessSection />
       <ExperienceSection />
       <SkillsExpertiseSection />
       <ProjectsSection />
