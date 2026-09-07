@@ -18,7 +18,6 @@ export default function Home() {
       <TechStackSection />
       <ProcessSection />
       <AboutSection />
-
       <Footer />
     </>
   );
