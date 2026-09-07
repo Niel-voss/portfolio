@@ -12,12 +12,13 @@ export default function Home() {
     <>
       <Navbar />
       <HeroSection />
-      <AboutSection />
-      <TechStackSection />
-      <ProcessSection />
+      <ProjectsSection />
       <ExperienceSection />
       <SkillsExpertiseSection />
-      <ProjectsSection />
+      <TechStackSection />
+      <ProcessSection />
+      <AboutSection />
+
       <Footer />
     </>
   );

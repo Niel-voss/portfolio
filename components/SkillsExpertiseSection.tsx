@@ -38,11 +38,11 @@ export default function SkillsExpertiseSection() {
       skills: ["PostgreSQL", "MongoDB", "Prisma", "Neon", "Firebase Auth", "Supabase", "Redis", "Drizzle ORM"],
     },
     {
-      title: "UI/UX &\nTools",
+      title: "UI/UX &\n Other Tools",
       icon: (
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M20.5 2.5a4.243 4.243 0 0 0-6 0L5 12c-1.5 1.5-3 4-3 4s2.5-1.5 4-3l9.5-9.5a4.243 4.243 0 0 0 0-6z"></path>
-          <path d="M13.5 6.5l4 4"></path>
+          <path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"></path>
+          <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"></path>
         </svg>
       ),
       skills: ["Figma", "Framer Motion", "Shadcn/UI", "Radix UI", "Git & GitHub", "VS Code", "Postman", "Vercel"],

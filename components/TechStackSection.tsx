@@ -1,34 +1,40 @@
 import Link from "next/link";
 import {
-  siExpress,
+  siGit,
   siGithub,
-  siJavascript,
   siNextdotjs,
   siNodedotjs,
   siPostgresql,
-  siPrisma,
   siReact,
-  siShadcnui,
   siTailwindcss,
   siTypescript,
+  siNeon,
+  siResend,
+  siZod,
 } from "simple-icons/icons";
 
+// Curated list with color overrides for logos that are black by default
 const technologies = [
+  // Frontend
   { name: "React", icon: siReact },
-  { name: "Next.js", icon: siNextdotjs },
+  { name: "Next.js", icon: siNextdotjs, colorOverride: "ffffff" },
   { name: "TypeScript", icon: siTypescript },
-  { name: "JavaScript", icon: siJavascript },
-  { name: "Node.js", icon: siNodedotjs },
-  { name: "Express", icon: siExpress },
-  { name: "PostgreSQL", icon: siPostgresql },
-  { name: "Prisma", icon: siPrisma },
   { name: "Tailwind CSS", icon: siTailwindcss },
-  { name: "Shadcn/UI", icon: siShadcnui },
-  { name: "Git & GitHub", icon: siGithub },
+
+  // Backend
+  { name: "Node.js", icon: siNodedotjs },
+  { name: "PostgreSQL", icon: siPostgresql },
+  { name: "Neon", icon: siNeon },
   {
-    name: "VS Code",
-    image: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg",
+    name: "Auth.js",
+    image: "https://authjs.dev/img/logo-sm.png"
   },
+
+  // Tools
+  { name: "Git", icon: siGit },
+  { name: "GitHub", icon: siGithub, colorOverride: "ffffff" },
+  { name: "Resend", icon: siResend, colorOverride: "ffffff" },
+  { name: "Zod", icon: siZod },
 ];
 
 export default function TechStackSection() {
@@ -36,7 +42,8 @@ export default function TechStackSection() {
     <section className="w-full bg-[#07070a] text-white py-16 lg:py-24 px-6 md:px-10 overflow-x-hidden border-t border-white/5 font-sans">
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          <div className="col-span-1 lg:col-span-4 flex flex-col items-start">
+
+          <div className="col-span-1 lg:col-span-4 flex flex-col items-start lg:sticky lg:top-28">
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#a855f7]/10 text-[#a855f7] text-[11px] font-bold tracking-widest uppercase mb-5 w-max">
               TECH STACK
             </div>
@@ -46,7 +53,7 @@ export default function TechStackSection() {
             </h2>
 
             <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8 max-w-sm">
-              I work with modern technologies to build fast, scalable and user-friendly applications.
+              I focus on a core set of modern technologies to build fast, scalable, and reliable digital products.
             </p>
 
             <Link
@@ -66,17 +73,18 @@ export default function TechStackSection() {
               {technologies.map((tech) => (
                 <div
                   key={tech.name}
-                  className="bg-[#0a0a0f] border border-white/5 rounded-2xl p-4 flex items-center gap-3 transition-colors hover:bg-white/5 cursor-default group"
+                  className="bg-[#0a0a0f] border border-white/5 rounded-2xl p-4 flex items-center gap-3 transition-colors hover:bg-white/5 cursor-default group shadow-sm"
                 >
                   <div className="shrink-0 flex items-center justify-center transition-transform group-hover:scale-110 duration-300 ease-out">
                     {"image" in tech ? (
-                      <img src={tech.image} width="24" height="24" alt={`${tech.name} logo`} />
+                      <img src={tech.image} width="24" height="24" alt={`${tech.name} logo`} className="object-contain" />
                     ) : (
                       <svg
                         width="24"
                         height="24"
                         viewBox="0 0 24 24"
-                        fill={`#${tech.icon.hex}`}
+                        // Fallback to the brand hex if no colorOverride is provided
+                        fill={`#${tech.colorOverride || tech.icon.hex}`}
                         xmlns="http://www.w3.org/2000/svg"
                         role="img"
                         aria-label={`${tech.name} logo`}
@@ -93,6 +101,7 @@ export default function TechStackSection() {
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>

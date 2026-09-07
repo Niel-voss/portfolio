@@ -5,7 +5,7 @@ export default function ProcessSection() {
     {
       number: "01",
       title: "Discover",
-      description: "Understand your goals, audience, and challenges through research and meaningful conversations.",
+      description: "Understand the problem, users and requirements.",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="11" cy="11" r="8"></circle>
@@ -16,7 +16,7 @@ export default function ProcessSection() {
     {
       number: "02",
       title: "Design",
-      description: "Craft intuitive user experiences and clean interfaces that solve real problems.",
+      description: "Plan the experience, interface and architecture.",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
@@ -28,7 +28,7 @@ export default function ProcessSection() {
     {
       number: "03",
       title: "Build",
-      description: "Write clean, scalable code and build fast, reliable products with modern technologies.",
+      description: "Develop the product with clean, maintainable code.",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <polyline points="16 18 22 12 16 6"></polyline>
@@ -38,11 +38,24 @@ export default function ProcessSection() {
     },
     {
       number: "04",
-      title: "Deliver",
-      description: "Test, deploy, and iterate based on feedback to ensure continuous improvement.",
+      title: "Test",
+      description: "Validate functionality, usability and edge cases.",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2l.5-.5M22 2c0 0-1.5 3-4 6l-6.5 6.5a2.12 2.12 0 0 1-3 0 2.12 2.12 0 0 1 0-3L15 5c3-2.5 6-4 6-4Z"></path>
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          <polyline points="9 12 11 14 15 10"></polyline>
+        </svg>
+      ),
+    },
+    {
+      number: "05",
+      title: "Deploy",
+      description: "Ship, monitor and continuously improve.",
+      // Replaced with a clean, modern gear icon
+      icon: (
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="3"></circle>
+          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
         </svg>
       ),
     },
@@ -56,7 +69,7 @@ export default function ProcessSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
 
           {/* ================= LEFT COLUMN: Header Info ================= */}
-          <div className="col-span-1 lg:col-span-3 flex flex-col items-start">
+          <div className="col-span-1 lg:col-span-3 flex flex-col items-start lg:sticky lg:top-28">
 
             {/* Tag */}
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#a855f7]/10 text-[#a855f7] text-[11px] font-bold tracking-widest uppercase mb-5 w-max">
@@ -79,15 +92,15 @@ export default function ProcessSection() {
           {/* ================= RIGHT COLUMN: Process Cards ================= */}
           <div className="col-span-1 lg:col-span-9 relative">
 
-            {/* Horizontal Connecting Line (Only visible on large screens when grid is 1 row) */}
-            <div className="hidden lg:block absolute top-[85px] left-8 right-8 h-[1px] bg-[#a855f7]/30 z-0"></div>
+            {/* Horizontal Connecting Line (Visible only when grid forms a single row on xl screens) */}
+            <div className="hidden xl:block absolute top-[85px] left-8 right-8 h-[1px] bg-[#a855f7]/30 z-0"></div>
 
-            {/* Cards Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 relative z-10">
+            {/* Cards Grid: Adjusted for 5 items (wraps on lg, single row on xl) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 md:gap-6 relative z-10">
               {steps.map((step, index) => (
                 <div
                   key={index}
-                  className="bg-[#0a0a0f] border border-white/5 rounded-2xl p-6 lg:p-7 flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1 duration-300 relative group"
+                  className="bg-[#0a0a0f] border border-white/5 rounded-2xl p-6 flex flex-col items-center text-center shadow-lg transition-transform hover:-translate-y-1 duration-300 relative group"
                 >
 
                   {/* Step Number Badge (Top Left Corner) */}
@@ -98,17 +111,17 @@ export default function ProcessSection() {
                   </div>
 
                   {/* Icon */}
-                  <div className="text-[#a855f7] mt-8 mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <div className="text-[#a855f7] mt-8 mb-5 group-hover:scale-110 transition-transform duration-300">
                     {step.icon}
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-bold text-gray-100 mb-3">
+                  <h3 className="text-lg font-bold text-gray-100 mb-2.5">
                     {step.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
+                  <p className="text-gray-400 text-[13px] leading-relaxed">
                     {step.description}
                   </p>
 
