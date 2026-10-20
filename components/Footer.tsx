@@ -1,219 +1,354 @@
+
 "use client";
 
-import React from "react";
 import Link from "next/link";
+
+const socialLinks = [
+  { name: "GitHub", href: "https://github.com", icon: "github" },
+  { name: "X", href: "https://x.com", icon: "x" },
+  { name: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
+  { name: "Email", href: "mailto:td0864691@gmail.com", icon: "email" },
+];
+
+function BrandLogo({ small = false }: { small?: boolean }) {
+  return (
+    <Link href="/" className="flex items-center gap-2">
+      <span style={{ color: "var(--portfolio-accent)" }}>
+        <svg
+          width={small ? 28 : 32}
+          height={small ? 28 : 32}
+          viewBox="0 0 32 32"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M10 26V6L16 12V20L22 6V26"
+            stroke="currentColor"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M10 18L16 12M16 20L22 14"
+            stroke="currentColor"
+            strokeWidth="4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </span>
+      <span
+        className={`${small ? "text-lg" : "text-xl"} font-semibold tracking-wide`}
+        style={{ color: "var(--portfolio-text)" }}
+      >
+        Niel_Voss
+      </span>
+    </Link>
+  );
+}
+
+function SocialIcon({ icon }: { icon: string }) {
+  if (icon === "github") {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.21 11.39.6.11.79-.26.79-.58v-2.23c-3.34.73-4.03-1.42-4.03-1.42-.55-1.39-1.33-1.76-1.33-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.18 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6.01 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.66.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.48 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.19.69.8.58A12.01 12.01 0 0 0 24 12c0-6.63-5.37-12-12-12Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "x") {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.59-6.64 7.59H.47l8.6-9.83L0 1.15h7.59l5.25 6.93ZM17.61 20.64h2.04L6.49 3.24H4.3Z" />
+      </svg>
+    );
+  }
+
+  if (icon === "linkedin") {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.45 0H3.55C1.59 0 0 1.55 0 3.45v17.1C0 22.45 1.59 24 3.55 24h16.9C22.41 24 24 22.45 24 20.55V3.45C24 1.55 22.41 0 20.45 0ZM7.12 20.4H3.56V9h3.56ZM5.34 7.44a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM20.44 20.4h-3.55v-5.55c0-1.32-.03-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.92v5.65H9.38V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.36-1.85c3.59 0 4.25 2.36 4.25 5.43Z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="3" y="5" width="18" height="14" rx="2" />
+      <path d="m3 7 9 6 9-6" />
+    </svg>
+  );
+}
 
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const cardStyle = {
+    background: "var(--portfolio-card)",
+    borderColor: "var(--portfolio-border)",
+    boxShadow: "var(--portfolio-card-shadow)",
+  };
+
+  const mutedText = { color: "var(--portfolio-muted)" };
+  const linkText = { color: "var(--portfolio-muted-strong)" };
+
   return (
-    <footer className="w-full bg-[#07070a] text-white relative overflow-x-hidden font-sans pt-20 pb-8">
-      <div className="max-w-7xl mx-auto px-6 md:px-10 w-full">
+    <footer
+      className="relative w-full overflow-x-hidden border-t pt-16 pb-8 font-sans md:pt-20"
+      style={{
+        background: "var(--portfolio-bg)",
+        color: "var(--portfolio-text)",
+        borderColor: "var(--portfolio-border)",
+      }}
+    >
+      <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
 
-        {/* ================= TOP SECTION: Call to Action Card ================= */}
-        <div className="relative w-full rounded-3xl bg-[#0a0a0f] border border-white/5 px-6 py-16 md:p-20 flex flex-col items-center text-center overflow-hidden mb-20 shadow-2xl">
-
-          {/* 1. Base Grid Pattern */}
+        {/* Contact CTA */}
+        <div
+          className="relative mb-16 flex w-full flex-col items-center overflow-hidden rounded-3xl border px-6 py-16 text-center md:mb-20 md:p-20"
+          style={cardStyle}
+        >
+          {/* Grid background adapts to either theme */}
           <div
-            className="absolute inset-0 z-0 opacity-20"
+            className="pointer-events-none absolute inset-0"
             style={{
-              backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-              backgroundSize: '40px 40px',
-              maskImage: 'radial-gradient(ellipse at center, transparent 20%, black 80%)',
-              WebkitMaskImage: 'radial-gradient(ellipse at center, transparent 20%, black 80%)'
+              opacity: 0.65,
+              backgroundImage: `
+                linear-gradient(color-mix(in srgb, var(--portfolio-text) 8%, transparent) 1px, transparent 1px),
+                linear-gradient(90deg, color-mix(in srgb, var(--portfolio-text) 8%, transparent) 1px, transparent 1px)
+              `,
+              backgroundSize: "40px 40px",
+              maskImage: "radial-gradient(ellipse at center, transparent 15%, black 85%)",
+              WebkitMaskImage: "radial-gradient(ellipse at center, transparent 15%, black 85%)",
             }}
-          ></div>
+          />
 
-          {/* 2. Central Deep Purple Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] md:w-[600px] md:h-[300px] bg-[#a855f7]/20 blur-[100px] md:blur-[140px] rounded-full pointer-events-none z-0"></div>
+          {/* Purple ambient glow */}
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[200px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[100px] md:h-[300px] md:w-[600px] md:blur-[140px]"
+            style={{ background: "var(--portfolio-accent-soft)" }}
+          />
 
-          {/* 3. Sweeping Curved Lines (Abstract Orbits) */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 opacity-40" viewBox="0 0 1000 400" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M -100,100 C 200,-50 400,350 1100,200" stroke="url(#gradient-curve-1)" strokeWidth="1.5" />
-            <path d="M -100,350 C 300,450 600,0 1100,300" stroke="url(#gradient-curve-2)" strokeWidth="1" opacity="0.5" />
+          {/* Abstract orbit artwork */}
+          <svg
+            className="pointer-events-none absolute inset-0 z-0 h-full w-full opacity-50"
+            viewBox="0 0 1000 400"
+            preserveAspectRatio="none"
+            fill="none"
+            aria-hidden="true"
+          >
             <defs>
-              <linearGradient id="gradient-curve-1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="footer-orbit-one" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="#a855f7" stopOpacity="0" />
-                <stop offset="30%" stopColor="#a855f7" stopOpacity="0.8" />
-                <stop offset="70%" stopColor="#a855f7" stopOpacity="0.8" />
+                <stop offset="35%" stopColor="#a855f7" stopOpacity=".7" />
+                <stop offset="70%" stopColor="#a855f7" stopOpacity=".7" />
                 <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
               </linearGradient>
-              <linearGradient id="gradient-curve-2" x1="100%" y1="100%" x2="0%" y2="0%">
+              <linearGradient id="footer-orbit-two" x1="100%" y1="100%" x2="0%" y2="0%">
                 <stop offset="0%" stopColor="#a855f7" stopOpacity="0" />
-                <stop offset="50%" stopColor="#a855f7" stopOpacity="0.5" />
+                <stop offset="50%" stopColor="#a855f7" stopOpacity=".45" />
                 <stop offset="100%" stopColor="#a855f7" stopOpacity="0" />
               </linearGradient>
             </defs>
+            <path d="M-100 100C200-50 400 350 1100 200" stroke="url(#footer-orbit-one)" strokeWidth="1.5" />
+            <path d="M-100 350C300 450 600 0 1100 300" stroke="url(#footer-orbit-two)" strokeWidth="1" />
           </svg>
 
-          {/* 4. Glowing Sparkles/Stars */}
-          <div className="absolute left-[15%] top-[25%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_3px_rgba(168,85,247,0.8)] z-0"></div>
-          <div className="absolute right-[20%] bottom-[30%] w-1.5 h-1.5 bg-white rounded-full shadow-[0_0_10px_3px_rgba(168,85,247,0.8)] z-0"></div>
-          <div className="absolute right-[35%] top-[20%] w-1 h-1 bg-[#a855f7] rounded-full blur-[1px] z-0"></div>
+          <span className="pointer-events-none absolute left-4 top-[20%] z-0 select-none font-mono text-3xl font-semibold opacity-50 md:left-12 md:top-[30%] md:text-[2.75rem]" style={{ color: "var(--portfolio-accent)" }}>
+            {"</>"}
+          </span>
+          <span className="pointer-events-none absolute bottom-[20%] right-4 z-0 select-none font-mono text-3xl font-semibold opacity-50 md:bottom-[25%] md:right-12 md:text-[2.75rem]" style={{ color: "var(--portfolio-accent)" }}>
+            {"</>"}
+          </span>
 
-          {/* 5. Asymmetric Floating Code Tags */}
-          {/* Left Tag: Positioned Higher */}
-          <div className="absolute left-4 md:left-12 top-[20%] md:top-[30%] text-[#a855f7]/40 text-3xl md:text-[2.75rem] font-mono font-semibold select-none z-0">
-            &lt;/&gt;
-          </div>
-          {/* Right Tag: Positioned Lower */}
-          <div className="absolute right-4 md:right-12 bottom-[20%] md:bottom-[25%] text-[#a855f7]/40 text-3xl md:text-[2.75rem] font-mono font-semibold select-none z-0">
-            &lt;/&gt;
-          </div>
+          <div
+            className="absolute left-[15%] top-[25%] z-0 h-1.5 w-1.5 rounded-full"
+            style={{ background: "var(--portfolio-accent)", boxShadow: "0 0 12px 3px var(--portfolio-accent-soft)" }}
+          />
+          <div
+            className="absolute bottom-[30%] right-[20%] z-0 h-1.5 w-1.5 rounded-full"
+            style={{ background: "var(--portfolio-accent)", boxShadow: "0 0 12px 3px var(--portfolio-accent-soft)" }}
+          />
 
-          {/* CTA Content (Foreground) */}
+          {/* CTA foreground */}
           <div className="relative z-10 flex flex-col items-center">
-            {/* Pill */}
-            <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-[#a855f7]/10 text-[#a855f7] text-[11px] font-bold tracking-[0.15em] uppercase mb-6">
-              LET'S WORK TOGETHER
-            </div>
+            <span
+              className="mb-6 inline-flex items-center rounded-full px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.15em]"
+              style={{
+                background: "var(--portfolio-accent-soft)",
+                color: "var(--portfolio-accent)",
+              }}
+            >
+              Let&apos;s work together
+            </span>
 
-            {/* Heading */}
-            <h2 className="text-[2rem] md:text-5xl font-bold leading-tight mb-5 tracking-tight">
-              Let's build something <span className="text-[#a855f7]">useful.</span>
+            <h2 className="mb-5 text-[2rem] font-bold leading-tight tracking-tight md:text-5xl">
+              Let&apos;s build something{" "}
+              <span style={{ color: "var(--portfolio-accent)" }}>useful.</span>
             </h2>
 
-            {/* Subtext */}
-            <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-10 max-w-md mx-auto">
-              Have a project in mind or just want to say hi? <br className="hidden sm:block" />
-              I'd love to hear from you.
+            <p className="mb-10 max-w-md text-sm leading-relaxed md:text-base" style={mutedText}>
+              Have a project in mind or just want to say hi?
+              <br className="hidden sm:block" /> I&apos;d love to hear from you.
             </p>
 
-            {/* Buttons (Built from scratch) */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-
-              {/* Get in touch (Solid) */}
+            <div className="flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
               <Link
                 href="/contact"
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#a855f7] hover:bg-[#9333ea] text-white px-7 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all shadow-[0_0_15px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] active:scale-95"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide text-white transition-all hover:-translate-y-0.5 active:scale-95 sm:w-auto"
+                style={{
+                  background: "var(--portfolio-accent)",
+                  boxShadow: "0 0 20px var(--portfolio-accent-soft)",
+                }}
               >
-                <span>Get in touch</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
-                  <line x1="22" y1="2" x2="11" y2="13"></line>
-                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                Get in touch
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13" />
+                  <polygon points="22 2 15 22 11 13 2 9 22 2" />
                 </svg>
               </Link>
 
-              {/* Download CV (Outline) */}
               <a
                 href="/cv.pdf"
                 download
-                className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-transparent border border-white/20 hover:bg-white/5 text-white px-7 py-3.5 rounded-full text-sm font-medium tracking-wide transition-all active:scale-95"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full border px-7 py-3.5 text-sm font-medium tracking-wide transition-all hover:-translate-y-0.5 active:scale-95 sm:w-auto"
+                style={{
+                  borderColor: "var(--portfolio-border)",
+                  color: "var(--portfolio-text)",
+                  background: "var(--portfolio-surface)",
+                }}
               >
-                <span>Download CV</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-y-0.5">
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                  <polyline points="7 10 12 15 17 10"></polyline>
-                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                Download CV
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="7 10 12 15 17 10" />
+                  <line x1="12" y1="15" x2="12" y2="3" />
                 </svg>
               </a>
-
             </div>
           </div>
         </div>
 
-        {/* ================= MIDDLE SECTION: Footer Links Grid ================= */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-12 lg:gap-8 mb-16">
+        {/* Footer navigation */}
+        <div className="mb-16 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-6 lg:gap-8">
+          <div className="flex flex-col items-start pr-0 sm:col-span-2 lg:col-span-2 lg:pr-8">
+            <div className="mb-6">
+              <BrandLogo small />
+            </div>
 
-          {/* Column 1: Logo & Bio (Spans 2 cols on desktop) */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-2 flex flex-col items-start pr-0 lg:pr-8">
-            <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="text-[#a855f7] flex items-center justify-center">
-                <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10 26V6L16 12V20L22 6V26" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M10 18L16 12M16 20L22 14" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
-              </div>
-              <span className="text-lg font-semibold tracking-wide">Niel_Voss</span>
-            </Link>
-
-            <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">
-              Full-stack developer who loves building clean, functional, and useful digital products.
+            <p className="mb-8 max-w-sm text-sm leading-relaxed" style={mutedText}>
+              Full-stack developer building clean, functional, and useful digital products.
             </p>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-6 text-gray-400">
-              <a href="https://github.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="GitHub">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" /></svg>
-              </a>
-              <a href="https://x.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="Twitter">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" /></svg>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-white transition-colors" aria-label="LinkedIn">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
-              </a>
-              <a href="mailto:contact@example.com" className="hover:text-white transition-colors" aria-label="Email">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              </a>
+            <div className="flex items-center gap-5" style={mutedText}>
+              {socialLinks.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target={social.name === "Email" ? undefined : "_blank"}
+                  rel={social.name === "Email" ? undefined : "noopener noreferrer"}
+                  className="transition-colors hover:text-[var(--portfolio-accent)]"
+                  aria-label={social.name}
+                  title={social.name}
+                >
+                  <span className="block h-5 w-5">
+                    <SocialIcon icon={social.icon} />
+                  </span>
+                </a>
+              ))}
             </div>
           </div>
 
-          {/* Column 2: Navigation */}
-          <div className="col-span-1 flex flex-col">
-            <h3 className="text-[#a855f7] font-semibold text-sm mb-5">Navigation</h3>
-            <ul className="flex flex-col gap-3 text-sm text-gray-300">
-              <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors">About</Link></li>
-              <li><Link href="/projects" className="hover:text-white transition-colors">Projects</Link></li>
-              <li><Link href="/skills" className="hover:text-white transition-colors">Skills</Link></li>
+          <div className="flex flex-col">
+            <h3 className="mb-5 text-sm font-semibold" style={{ color: "var(--portfolio-accent)" }}>
+              Navigation
+            </h3>
+            <ul className="flex flex-col gap-3 text-sm">
+              {[
+                ["Home", "/"],
+                ["About", "/#about"],
+                ["Projects", "/#projects"],
+                ["Skills", "/#skills"],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <Link href={href} className="transition-colors hover:text-[var(--portfolio-accent)]" style={linkText}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 3: More */}
-          <div className="col-span-1 flex flex-col">
-            <h3 className="text-[#a855f7] font-semibold text-sm mb-5">More</h3>
-            <ul className="flex flex-col gap-3 text-sm text-gray-300">
-              <li><Link href="/experience" className="hover:text-white transition-colors">Experience</Link></li>
-              <li><Link href="/testimonials" className="hover:text-white transition-colors">Testimonials</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+          <div className="flex flex-col">
+            <h3 className="mb-5 text-sm font-semibold" style={{ color: "var(--portfolio-accent)" }}>
+              Explore
+            </h3>
+            <ul className="flex flex-col gap-3 text-sm">
+              {[
+                ["Experience", "/#experience"],
+                ["Contact", "/contact"],
+              ].map(([label, href]) => (
+                <li key={label}>
+                  <Link href={href} className="transition-colors hover:text-[var(--portfolio-accent)]" style={linkText}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Column 4: Let's Connect (Spans 2 cols on desktop) */}
-          <div className="col-span-1 sm:col-span-2 lg:col-span-2 flex flex-col items-start lg:pl-8">
-            <h3 className="text-[#a855f7] font-semibold text-sm mb-5">Let's connect</h3>
-            <p className="text-gray-400 text-sm leading-relaxed mb-6">
+          <div className="flex flex-col items-start sm:col-span-2 lg:col-span-2 lg:pl-8">
+            <h3 className="mb-5 text-sm font-semibold" style={{ color: "var(--portfolio-accent)" }}>
+              Let&apos;s connect
+            </h3>
+            <p className="mb-6 text-sm leading-relaxed" style={mutedText}>
               Open to new opportunities and interesting projects.
             </p>
-            {/* Outlined Contact Button matching design */}
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-white/20 text-gray-200 text-sm font-medium hover:bg-white/5 transition-colors"
+              className="inline-flex items-center gap-2 rounded-full border px-6 py-2.5 text-sm font-medium transition-all hover:border-[var(--portfolio-accent)] hover:text-[var(--portfolio-accent)]"
+              style={{
+                borderColor: "var(--portfolio-border)",
+                color: "var(--portfolio-text)",
+              }}
             >
               Get in touch
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" />
+                <polyline points="12 5 19 12 12 19" />
               </svg>
             </Link>
           </div>
-
         </div>
 
-        {/* ================= BOTTOM SECTION: Copyright & Back to Top ================= */}
-        <div className="w-full h-px bg-white/10 mb-6"></div>
+        {/* Copyright and back to top */}
+        <div className="mb-6 h-px w-full" style={{ background: "var(--portfolio-border)" }} />
 
-        <div className="flex flex-col-reverse sm:flex-row items-center justify-between gap-4">
-          <p className="text-gray-500 text-xs sm:text-sm">
+        <div className="flex flex-col-reverse items-center justify-between gap-4 sm:flex-row">
+          <p className="text-xs sm:text-sm" style={mutedText}>
             © {new Date().getFullYear()} Niel_Voss. All rights reserved.
           </p>
 
           <button
+            type="button"
             onClick={scrollToTop}
-            className="group flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm"
+            className="group flex items-center gap-2 text-sm transition-colors hover:text-[var(--portfolio-accent)]"
+            style={mutedText}
           >
-            <div className="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-[#a855f7]/20 group-hover:border-[#a855f7]/50 transition-all">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="12" y1="19" x2="12" y2="5"></line>
-                <polyline points="5 12 12 5 19 12"></polyline>
+            <span
+              className="flex h-8 w-8 items-center justify-center rounded-full border transition-all group-hover:border-[var(--portfolio-accent)] group-hover:bg-[var(--portfolio-accent-soft)]"
+              style={{ borderColor: "var(--portfolio-border)" }}
+            >
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="12" y1="19" x2="12" y2="5" />
+                <polyline points="5 12 12 5 19 12" />
               </svg>
-            </div>
-            <span>Back to top</span>
+            </span>
+            Back to top
           </button>
         </div>
-
       </div>
     </footer>
   );

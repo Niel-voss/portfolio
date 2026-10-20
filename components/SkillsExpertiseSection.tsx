@@ -1,132 +1,200 @@
-import React from "react";
+
 import Link from "next/link";
 
+const skillCategories = [
+  {
+    title: "Frontend Development",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2" />
+        <path d="M8 21h8M12 17v4" />
+      </svg>
+    ),
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "Tailwind CSS",
+      "HTML5",
+      "CSS3",
+      "Redux Toolkit",
+    ],
+  },
+  {
+    title: "Backend & APIs",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="8" rx="2" />
+        <rect x="2" y="14" width="20" height="8" rx="2" />
+        <path d="M6 6h.01M6 18h.01" />
+      </svg>
+    ),
+    skills: [
+      "Node.js",
+      "Express",
+      "REST APIs",
+      "GraphQL",
+      "Next.js API",
+      "JWT",
+      "Bcrypt",
+      "Zod",
+    ],
+  },
+  {
+    title: "Database & Authentication",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <ellipse cx="12" cy="5" rx="9" ry="3" />
+        <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5M21 12c0 1.66-4 3-9 3s-9-1.34-9-3" />
+      </svg>
+    ),
+    skills: [
+      "PostgreSQL",
+      "MongoDB",
+      "Prisma",
+      "Neon",
+      "Firebase Auth",
+      "Supabase",
+      "Redis",
+      "Drizzle ORM",
+    ],
+  },
+  {
+    title: "UI/UX & Developer Tools",
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08" />
+        <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z" />
+      </svg>
+    ),
+    skills: [
+      "Figma",
+      "Framer Motion",
+      "Shadcn/UI",
+      "Radix UI",
+      "Git & GitHub",
+      "VS Code",
+      "Postman",
+      "Vercel",
+    ],
+  },
+];
+
 export default function SkillsExpertiseSection() {
-  const skillCategories = [
-    {
-      title: "Frontend Development",
-      icon: (
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-          <line x1="8" y1="21" x2="16" y2="21"></line>
-          <line x1="12" y1="17" x2="12" y2="21"></line>
-        </svg>
-      ),
-      skills: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "HTML5", "CSS3", "Redux Toolkit"],
-    },
-    {
-      title: "Backend &\nAPIs",
-      icon: (
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
-          <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
-          <line x1="6" y1="6" x2="6.01" y2="6"></line>
-          <line x1="6" y1="18" x2="6.01" y2="18"></line>
-        </svg>
-      ),
-      skills: ["Node.js", "Express", "REST APIs", "GraphQL", "Next.js API", "JWT", "Bcrypt", "Zod"],
-    },
-    {
-      title: "Database &\nAuth",
-      icon: (
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-          <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-          <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-        </svg>
-      ),
-      skills: ["PostgreSQL", "MongoDB", "Prisma", "Neon", "Firebase Auth", "Supabase", "Redis", "Drizzle ORM"],
-    },
-    {
-      title: "UI/UX &\n Other Tools",
-      icon: (
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m9.06 11.9 8.07-8.06a2.85 2.85 0 1 1 4.03 4.03l-8.06 8.08"></path>
-          <path d="M7.07 14.94c-1.66 0-3 1.35-3 3.02 0 1.33-2.5 1.52-2 2.02 1.08 1.1 2.49 2.02 4 2.02 2.2 0 4-1.8 4-4.04a3.01 3.01 0 0 0-3-3.02z"></path>
-        </svg>
-      ),
-      skills: ["Figma", "Framer Motion", "Shadcn/UI", "Radix UI", "Git & GitHub", "VS Code", "Postman", "Vercel"],
-    },
-  ];
-
   return (
-    <section id="skills" className="w-full bg-[#07070a] text-white py-16 lg:py-24 px-6 md:px-10 overflow-x-hidden border-t border-white/5 font-sans">
-      <div className="max-w-7xl mx-auto w-full">
+    <section
+      id="skills"
+      className="w-full overflow-hidden border-t px-5 py-16 font-sans sm:px-8 sm:py-20 lg:px-12 lg:py-24"
+      style={{
+        background: "var(--portfolio-bg)",
+        color: "var(--portfolio-text)",
+        borderColor: "var(--portfolio-border)",
+      }}
+    >
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-12">
+          {/* Section introduction */}
+          <div className="flex flex-col items-start lg:sticky lg:top-28 lg:col-span-3">
+            <span
+              className="mb-5 inline-flex w-fit items-center rounded-full border px-3 py-1 text-[11px] font-bold uppercase tracking-[0.16em]"
+              style={{
+                color: "var(--portfolio-accent)",
+                background: "var(--portfolio-accent-soft)",
+                borderColor: "var(--portfolio-border)",
+              }}
+            >
+              Skills & expertise
+            </span>
 
-        {/* Main Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-start">
-
-          {/* ================= LEFT COLUMN: Header Info (Col Span 3) ================= */}
-          <div className="col-span-1 lg:col-span-3 flex flex-col items-start lg:sticky lg:top-28">
-
-            {/* Tag */}
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#a855f7]/10 text-[#a855f7] text-[11px] font-bold tracking-widest uppercase mb-5 w-max">
-              SKILLS / EXPERTISE
-            </div>
-
-            {/* Heading */}
-            <h2 className="text-3xl md:text-4xl lg:text-[2.25rem] font-bold leading-[1.2] mb-5 tracking-tight">
-              What I bring <br /> to <span className="text-[#a855f7]">the table.</span>
+            <h2 className="mb-5 text-3xl font-bold leading-tight tracking-tight sm:text-4xl lg:text-[2.5rem]">
+              What I bring
+              <br />
+              to{" "}
+              <span style={{ color: "var(--portfolio-accent)" }}>
+                the table.
+              </span>
             </h2>
 
-            {/* Description */}
-            <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-sm">
-              A blend of modern technologies, solid fundamentals, and continuous learning to build reliable, scalable, and delightful user experiences.
+            <p
+              className="mb-7 max-w-sm text-sm leading-7 sm:text-base"
+              style={{ color: "var(--portfolio-muted)" }}
+            >
+              The skills and technical foundations I draw on to build
+              functional interfaces, connect application logic, and work with
+              data.
             </p>
 
-            {/* Button */}
             <Link
               href="/skills"
-              className="inline-flex items-center justify-center gap-2 border border-white/20 hover:bg-white/5 transition-colors rounded-full px-6 py-2.5 text-sm font-medium text-gray-200 hover:text-white"
+              className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition duration-200 hover:-translate-y-0.5"
+              style={{
+                color: "var(--portfolio-text)",
+                borderColor: "var(--portfolio-border)",
+                background: "var(--portfolio-surface)",
+              }}
             >
               View all skills
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
               </svg>
             </Link>
-
           </div>
 
-          {/* ================= RIGHT COLUMN: Skills Grid (Col Span 9) ================= */}
-          <div className="col-span-1 lg:col-span-9">
-
-            {/* Cards Grid: 1 col mobile, 2 cols tablet, 4 cols large desktop */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-5">
-              {skillCategories.map((category, index) => (
+          {/* Skill categories */}
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:col-span-9 lg:gap-5">
+            {skillCategories.map((category) => (
+              <article
+                key={category.title}
+                className="rounded-2xl border p-5 transition duration-300 hover:-translate-y-1 sm:p-6"
+                style={{
+                  background: "var(--portfolio-card)",
+                  borderColor: "var(--portfolio-border)",
+                  boxShadow: "var(--portfolio-card-shadow)",
+                }}
+              >
                 <div
-                  key={index}
-                  className="bg-[#0a0a0f] border border-white/5 rounded-2xl p-6 flex flex-col shadow-lg transition-transform hover:-translate-y-1 duration-300"
+                  className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl"
+                  style={{
+                    color: "var(--portfolio-accent)",
+                    background: "var(--portfolio-accent-soft)",
+                  }}
                 >
-
-                  {/* Category Icon */}
-                  <div className="text-[#a855f7] mb-6">
-                    {category.icon}
-                  </div>
-
-                  {/* Category Title */}
-                  <h3 className="text-xl font-bold text-gray-100 mb-6 whitespace-pre-line leading-snug">
-                    {category.title}
-                  </h3>
-
-                  {/* Skills Pills */}
-                  <div className="flex flex-wrap gap-2.5">
-                    {category.skills.map((skill, idx) => (
-                      <span
-                        key={idx}
-                        className="bg-white/5 border border-white/5 text-gray-300 text-[11px] font-medium px-3 py-1.5 rounded-lg"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-
+                  <div className="h-6 w-6">{category.icon}</div>
                 </div>
-              ))}
-            </div>
 
+                <h3 className="mb-5 text-lg font-bold tracking-tight sm:text-xl">
+                  {category.title}
+                </h3>
+
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="rounded-lg border px-3 py-2 text-xs font-medium sm:text-[13px]"
+                      style={{
+                        color: "var(--portfolio-muted-strong)",
+                        background: "var(--portfolio-chip)",
+                        borderColor: "var(--portfolio-border)",
+                      }}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            ))}
           </div>
-
         </div>
       </div>
     </section>

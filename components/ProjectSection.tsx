@@ -1,4 +1,4 @@
-import React from "react";
+
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -13,246 +13,280 @@ import {
   siMongodb,
 } from "simple-icons/icons";
 
-export default function ProjectsSection() {
-  const projects = [
-    {
-      title: "Vendly",
-      description: "A P2P marketplace for UNIBEN students to buy and sell fairly used items.",
-      techStack: [
-        { name: "Next.js", icon: siNextdotjs, colorOverride: "ffffff" },
-        { name: "TypeScript", icon: siTypescript, colorOverride: "3178C6" },
-        { name: "Tailwind", icon: siTailwindcss, colorOverride: "06B6D4" },
-        { name: "Neon", icon: siNeon, colorOverride: "00E599" },
-      ],
-      status: "LIVE",
-      statusConfig: { color: "text-emerald-400", dot: "bg-emerald-400", bg: "bg-emerald-400/10", border: "border-emerald-400/20" },
-      liveLink: "https://vendlymarket.com.ng",
-      githubLink: "#",
-      caseStudyLink: "#",
-      image: "/vendly.png",
-    },
-    {
-      title: "University of Miradelle",
-      description: "RBAC system with middleware resource protection and audit logs.",
-      techStack: [
-        { name: "Next.js", icon: siNextdotjs, colorOverride: "ffffff" },
-        { name: "Prisma", icon: siPrisma, colorOverride: "ffffff" },
-        { name: "PostgreSQL", icon: siPostgresql, colorOverride: "4169E1" },
-        { name: "Auth.js", image: "https://authjs.dev/img/logo-sm.png" },
-      ],
-      status: "LIVE",
-      statusConfig: { color: "text-emerald-400", dot: "bg-emerald-400", bg: "bg-emerald-400/10", border: "border-emerald-400/20" },
-      liveLink: "https://rbac-project-flame.vercel.app/",
-      githubLink: "#",
-      caseStudyLink: "#",
-      image: "/rbac.webp",
-    },
-    {
-      title: "Past Questions App",
-      description: "A mobile application for UNIBEN past questions.",
-      techStack: [
-        { name: "React Native", icon: siReact, colorOverride: "61DAFB" },
-        { name: "Node.js", icon: siNodedotjs, colorOverride: "339933" },
-        { name: "MongoDB", icon: siMongodb, colorOverride: "47A248" },
-      ],
-      status: "IN DEVELOPMENT",
-      statusConfig: { color: "text-purple-400", dot: "bg-purple-400", bg: "bg-purple-400/10", border: "border-purple-400/20" },
-      githubLink: "#",
-      caseStudyLink: "#",
-      liveLink: null,
-      image: null,
-    },
-  ];
+const projects = [
+  {
+    title: "Vendly",
+    description:
+      "A student-to-student marketplace for UNIBEN, connecting people who want to buy or sell items and offer services.",
+    techStack: [
+      { name: "Next.js", icon: siNextdotjs, colorOverride: "ffffff" },
+      { name: "TypeScript", icon: siTypescript },
+      { name: "Tailwind CSS", icon: siTailwindcss },
+      { name: "Neon", icon: siNeon },
+    ],
+    status: "LIVE",
+    statusStyle: "live",
+    liveLink: "https://vendlymarket.com.ng",
+    githubLink: null,
+    caseStudyLink: null,
+    image: "/vendly.png",
+  },
+  {
+    title: "University of Miradelle",
+    description:
+      "A university portal focused on role-based access control, protected resources and administrative audit trails.",
+    techStack: [
+      { name: "Next.js", icon: siNextdotjs, colorOverride: "ffffff" },
+      { name: "Prisma", icon: siPrisma },
+      { name: "PostgreSQL", icon: siPostgresql },
+      { name: "TypeScript", icon: siTypescript },
+    ],
+    status: "DEPLOYED",
+    statusStyle: "live",
+    liveLink: "https://rbac-project-flame.vercel.app/",
+    githubLink: null,
+    caseStudyLink: null,
+    image: "/rbac.webp",
+  },
+  {
+    title: "Past Questions App",
+    description:
+      "A mobile application project designed to help UNIBEN students access past examination questions.",
+    techStack: [
+      { name: "React", icon: siReact },
+      { name: "Node.js", icon: siNodedotjs },
+      { name: "MongoDB", icon: siMongodb },
+    ],
+    status: "IN DEVELOPMENT",
+    statusStyle: "development",
+    liveLink: null,
+    githubLink: null,
+    caseStudyLink: null,
+    image: null,
+  },
+] as const;
 
+const statusStyles = {
+  live: "border-emerald-500/25 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+  development:
+    "border-violet-500/25 bg-violet-500/10 text-violet-700 dark:text-violet-300",
+};
+
+export default function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="w-full bg-[#07070a] text-white overflow-x-hidden font-sans"
+      className="w-full overflow-x-clip bg-[var(--projects-bg)] font-sans text-[var(--projects-text)]"
     >
-      <div className="w-full h-px bg-white/5"></div>
+      <div className="h-px w-full bg-[var(--projects-border)]" />
 
-      <div className="py-16 lg:py-24 px-6 md:px-10">
-        <div className="max-w-7xl mx-auto w-full">
+      <div className="px-5 py-16 sm:px-6 lg:px-10 lg:py-24">
+        <div className="mx-auto w-full max-w-7xl">
+          <div className="grid items-start gap-10 lg:grid-cols-12 lg:gap-12">
+            {/* Section introduction */}
+            <div className="flex flex-col items-start lg:sticky lg:top-28 lg:col-span-3">
+              <span className="mb-5 inline-flex w-max items-center rounded-full border border-[var(--projects-border)] bg-[var(--projects-surface)] px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-[var(--projects-accent)]">
+                Selected work
+              </span>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-start">
-
-            {/* ================= LEFT COLUMN ================= */}
-            <div className="col-span-1 lg:col-span-3 flex flex-col items-start lg:sticky lg:top-28">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#a855f7]/10 text-[#a855f7] text-[11px] font-bold tracking-widest uppercase mb-5 w-max">
-                FEATURED PROJECTS
-              </div>
-
-              <h2 className="text-3xl md:text-4xl font-bold leading-[1.2] mb-4 tracking-tight">
-                Some things <br className="hidden lg:block" /> I've built
+              <h2 className="mb-4 text-3xl font-bold leading-tight tracking-tight sm:text-4xl">
+                Things I&apos;ve built
               </h2>
 
-              <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                A selection of projects that showcase my focus on solving real
-                problems, building reliable systems, and crafting clean user
-                experiences.
+              <p className="mb-7 max-w-md text-sm leading-7 text-[var(--projects-muted)]">
+                A selection of projects where I explore practical problems,
+                full-stack development and thoughtful user experiences.
               </p>
 
               <Link
                 href="/projects"
-                className="hidden lg:inline-flex items-center justify-center gap-2 border border-white/20 hover:bg-white/5 transition-colors rounded-full px-6 py-2.5 text-sm font-medium text-white"
+                className="hidden items-center gap-2 rounded-full border border-[var(--projects-border)] px-5 py-3 text-sm font-medium transition-colors hover:bg-[var(--projects-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--projects-accent)] lg:inline-flex"
               >
                 View all projects
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
+                <svg
+                  aria-hidden="true"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
                 </svg>
               </Link>
             </div>
 
-            {/* ================= PROJECT CARDS ================= */}
-            <div className="col-span-1 lg:col-span-9">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6 items-stretch">
-
-                {projects.map((project, index) => (
-                  <div
-                    key={index}
-                    className="bg-[#0c0c11] border border-white/5 rounded-[20px] flex flex-col h-full group hover:border-white/10 transition-all duration-300 shadow-lg p-4"
+            {/* Project cards */}
+            <div className="lg:col-span-9">
+              <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-2 lg:gap-6">
+                {projects.map((project) => (
+                  <article
+                    key={project.title}
+                    className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-[var(--projects-border)] bg-[var(--projects-card)] p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-5"
                   >
-                    {/* Explicit Status Pill Badge */}
+                    {/* Status */}
                     <div className="mb-4">
-                      <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border ${project.statusConfig.bg} ${project.statusConfig.border}`}>
-                        <div className={`w-1.5 h-1.5 rounded-full ${project.statusConfig.dot} animate-pulse`} />
-                        <span className={`${project.statusConfig.color} text-[9px] font-bold tracking-widest uppercase`}>
-                          {project.status}
-                        </span>
-                      </div>
+                      <span
+                        className={`inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-[10px] font-bold tracking-wider ${statusStyles[project.statusStyle]}`}
+                      >
+                        <span
+                          className={`h-1.5 w-1.5 rounded-full ${project.statusStyle === "live"
+                            ? "bg-emerald-500"
+                            : "bg-violet-500"
+                            }`}
+                        />
+                        {project.status}
+                      </span>
                     </div>
 
-                    {/* Title & Description with minimum height lock */}
-                    <h3 className="text-xl font-bold text-gray-100 mb-1.5">
+                    {/* Project details */}
+                    <h3 className="mb-2 text-xl font-bold tracking-tight">
                       {project.title}
                     </h3>
-                    <p className="text-gray-400 text-[13px] leading-relaxed mb-4 min-h-[40px]">
+
+                    <p className="mb-5 min-h-[4.5rem] text-sm leading-6 text-[var(--projects-muted)]">
                       {project.description}
                     </p>
 
-                    {/* Strictly Uniform 16:9 Image Preview */}
-                    <div className="w-full aspect-video bg-gradient-to-br from-[#1a1a24] to-[#0d0d14] relative flex items-center justify-center overflow-hidden rounded-xl border border-white/5 mb-5 shrink-0">
+                    {/* Preview */}
+                    <div className="relative mb-5 aspect-video w-full overflow-hidden rounded-xl border border-[var(--projects-border)] bg-[var(--projects-preview)]">
                       {project.image ? (
                         <Image
                           src={project.image}
-                          alt={`${project.title} preview`}
+                          alt={`${project.title} project screenshot`}
                           fill
-                          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 33vw, 25vw"
-                          className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
+                          sizes="(max-width: 767px) 100vw, (max-width: 1279px) 45vw, 35vw"
+                          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.025]"
                         />
                       ) : (
-                        <div className="flex flex-col items-center gap-2 text-white/20 group-hover:scale-110 transition-transform duration-500">
-                          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
-                            <line x1="12" y1="18" x2="12.01" y2="18"></line>
-                          </svg>
-                          <span className="text-[10px] font-bold tracking-widest uppercase">App Mockup Pending</span>
+                        <div className="flex h-full flex-col items-center justify-center gap-3 p-5 text-center">
+                          <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-[var(--projects-border)] bg-[var(--projects-card)] text-[var(--projects-accent)]">
+                            <svg
+                              aria-hidden="true"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="1.6"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <rect
+                                x="5"
+                                y="2"
+                                width="14"
+                                height="20"
+                                rx="2"
+                              />
+                              <path d="M12 18h.01" />
+                            </svg>
+                          </div>
+                          <span className="text-xs font-medium text-[var(--projects-muted)]">
+                            Project preview coming soon
+                          </span>
                         </div>
                       )}
                     </div>
 
-                    {/* Tech Stack with minimum height lock for uniform wrap wrapping */}
-                    <div className="flex flex-wrap gap-2 mb-4 content-start min-h-[56px]">
-                      {project.techStack.map((tech, i) => (
-                        <div
-                          key={i}
-                          className="bg-white/5 border border-white/5 flex items-center gap-1.5 px-2 py-1 rounded-md h-max"
+                    {/* Technology stack */}
+                    <div className="mb-5 flex flex-wrap gap-2">
+                      {project.techStack.map((tech) => (
+                        <span
+                          key={tech.name}
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-[var(--projects-border)] bg-[var(--projects-surface)] px-2.5 py-1.5 text-xs font-medium text-[var(--projects-muted)]"
                         >
-                          <div className="shrink-0 flex items-center justify-center">
-                            {"image" in tech && tech.image ? (
-                              <img src={tech.image} width="12" height="12" alt={`${tech.name} logo`} className="object-contain" />
-                            ) : tech.icon ? (
-                              <svg
-                                width="12"
-                                height="12"
-                                viewBox="0 0 24 24"
-                                fill={`#${tech.colorOverride || tech.icon.hex}`}
-                                xmlns="http://www.w3.org/2000/svg"
-                                role="img"
-                              >
-                                <path d={tech.icon.path} />
-                              </svg>
-                            ) : null}
-                          </div>
-                          <span className="text-gray-300 text-[10.5px] font-medium">
-                            {tech.name}
-                          </span>
-                        </div>
+                          <svg
+                            aria-hidden="true"
+                            className="h-3.5 w-3.5 shrink-0"
+                            viewBox="0 0 24 24"
+                            fill={`#${("colorOverride" in tech ? tech.colorOverride : undefined) ?? tech.icon.hex}`}
+                          >
+                            <path d={tech.icon.path} />
+                          </svg>
+                          {tech.name}
+                        </span>
                       ))}
                     </div>
 
-                    {/* Action Links anchored to the bottom */}
-                    <div className="mt-auto pt-3 border-t border-white/5 flex items-center gap-2 sm:gap-3 text-[11.5px] font-medium whitespace-nowrap overflow-hidden">
+                    {/* Available actions only */}
+                    <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-[var(--projects-border)] pt-4 text-sm font-semibold">
                       {project.liveLink && (
-                        <>
-                          <Link
-                            href={project.liveLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-[#a855f7] hover:text-[#c084fc] transition-colors inline-flex items-center gap-1.5 group/link"
+                        <a
+                          href={project.liveLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 text-[var(--projects-accent)] transition-opacity hover:opacity-75 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--projects-accent)]"
+                        >
+                          View project
+                          <svg
+                            aria-hidden="true"
+                            width="15"
+                            height="15"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
                           >
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 transition-transform">
-                              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                              <polyline points="15 3 21 3 21 9" />
-                              <line x1="10" y1="14" x2="21" y2="3" />
-                            </svg>
-                            Live Preview
-                          </Link>
-                          <span className="text-gray-700 text-[8px]">•</span>
-                        </>
+                            <path d="M14 3h7v7" />
+                            <path d="M10 14 21 3" />
+                            <path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5" />
+                          </svg>
+                        </a>
                       )}
 
                       {project.caseStudyLink && (
                         <Link
                           href={project.caseStudyLink}
-                          className="text-gray-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group/link"
+                          className="text-[var(--projects-muted)] transition-colors hover:text-[var(--projects-text)]"
                         >
-                          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/link:scale-110 transition-transform">
-                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                            <polyline points="14 2 14 8 20 8"></polyline>
-                            <line x1="16" y1="13" x2="8" y2="13"></line>
-                            <line x1="16" y1="17" x2="8" y2="17"></line>
-                            <polyline points="10 9 9 9 8 9"></polyline>
-                          </svg>
-                          Case Study
+                          Case study
                         </Link>
                       )}
 
                       {project.githubLink && (
-                        <>
-                          <span className="text-gray-700 text-[8px]">•</span>
-                          <Link
-                            href={project.githubLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group/link"
-                          >
-                            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover/link:scale-110 transition-transform">
-                              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                            </svg>
-                            GitHub
-                          </Link>
-                        </>
+                        <a
+                          href={project.githubLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-[var(--projects-muted)] transition-colors hover:text-[var(--projects-text)]"
+                        >
+                          Source code
+                        </a>
                       )}
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
 
-              <div className="mt-10 flex justify-center lg:hidden">
+              <div className="mt-8 flex justify-center lg:hidden">
                 <Link
                   href="/projects"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border border-white/20 hover:bg-white/5 transition-colors rounded-full px-6 py-3.5 text-sm font-medium text-white"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--projects-border)] px-6 py-3.5 text-sm font-medium transition-colors hover:bg-[var(--projects-surface)] sm:w-auto"
                 >
                   View all projects
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
+                  <svg
+                    aria-hidden="true"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
                   </svg>
                 </Link>
               </div>
-
             </div>
           </div>
         </div>
