@@ -332,3 +332,49 @@ aside,
     animation: none !important;
   }
 }
+
+
+/* Theme-aware Download CV button */
+.download-cv-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  width: 100%;
+  padding: 0.875rem 2rem;
+
+  color: var(--portfolio-text);
+  background-color: var(--portfolio-card);
+  border: 1px solid var(--portfolio-border);
+  border-radius: 9999px;
+
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  transition:
+    background-color 250ms ease,
+    color 250ms ease,
+    border-color 250ms ease;
+}
+
+.download-cv-btn:hover {
+  background-color: var(--portfolio-surface);
+  border-color: var(--portfolio-accent);
+}
+
+.download-cv-btn:focus-visible {
+  outline: 2px solid var(--portfolio-accent);
+  outline-offset: 3px;
+}
+
+.download-cv-btn svg {
+  flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+  .download-cv-btn {
+    width: auto;
+  }
+}

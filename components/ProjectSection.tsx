@@ -1,6 +1,6 @@
-
 import Link from "next/link";
 import Image from "next/image";
+
 import {
   siNextdotjs,
   siTypescript,
@@ -28,13 +28,13 @@ const projects = [
     statusStyle: "live",
     liveLink: "https://vendlymarket.com.ng",
     githubLink: null,
-    caseStudyLink: null,
+    caseStudyLink: "/projects/vendly-market",
     image: "/vendly.png",
   },
   {
     title: "University of Miradelle",
     description:
-      "A university portal focused on role-based access control, protected resources and administrative audit trails.",
+      "A university management system (a  demo environment) built to implement role-based access control, protected resources and administrative audit trails.",
     techStack: [
       { name: "Next.js", icon: siNextdotjs, colorOverride: "ffffff" },
       { name: "Prisma", icon: siPrisma },
@@ -45,7 +45,7 @@ const projects = [
     statusStyle: "live",
     liveLink: "https://rbac-project-flame.vercel.app/",
     githubLink: null,
-    caseStudyLink: null,
+    caseStudyLink: "/projects/university-rbac",
     image: "/rbac.webp",
   },
   {
@@ -126,34 +126,47 @@ export default function ProjectsSection() {
                 {projects.map((project) => (
                   <article
                     key={project.title}
-                    className="group flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-[var(--projects-border)] bg-[var(--projects-card)] p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-5"
+                    className="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-2xl border border-[var(--projects-border)] bg-[var(--projects-card)] p-4 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-5"
                   >
+                    {/* Main clickable project area */}
+                    {project.liveLink && (
+                      <a
+                        href={project.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open ${project.title} live project in a new tab`}
+                        className="absolute inset-0 z-0 rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-[var(--projects-accent)]"
+                      />
+                    )}
+
                     {/* Status */}
-                    <div className="mb-4">
+                    <div className="pointer-events-none relative z-10 mb-4">
                       <span
-                        className={`inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-[10px] font-bold tracking-wider ${statusStyles[project.statusStyle]}`}
+                        className={`inline - flex items - center gap - 2 rounded - full border px - 2.5 py - 1 text - [10px] font - bold tracking - wider ${statusStyles[project.statusStyle]} `}
                       >
                         <span
-                          className={`h-1.5 w-1.5 rounded-full ${project.statusStyle === "live"
+                          className={`h - 1.5 w - 1.5 rounded - full ${project.statusStyle === "live"
                             ? "bg-emerald-500"
                             : "bg-violet-500"
-                            }`}
+                            } `}
                         />
                         {project.status}
                       </span>
                     </div>
 
                     {/* Project details */}
-                    <h3 className="mb-2 text-xl font-bold tracking-tight">
-                      {project.title}
-                    </h3>
+                    <div className="pointer-events-none relative z-10">
+                      <h3 className="mb-2 text-xl font-bold tracking-tight">
+                        {project.title}
+                      </h3>
 
-                    <p className="mb-5 min-h-[4.5rem] text-sm leading-6 text-[var(--projects-muted)]">
-                      {project.description}
-                    </p>
+                      <p className="mb-5 min-h-[4.5rem] text-sm leading-6 text-[var(--projects-muted)]">
+                        {project.description}
+                      </p>
+                    </div>
 
                     {/* Preview */}
-                    <div className="relative mb-5 aspect-video w-full overflow-hidden rounded-xl border border-[var(--projects-border)] bg-[var(--projects-preview)]">
+                    <div className="pointer-events-none relative z-10 mb-5 aspect-video w-full overflow-hidden rounded-xl border border-[var(--projects-border)] bg-[var(--projects-preview)]">
                       {project.image ? (
                         <Image
                           src={project.image}
@@ -186,6 +199,7 @@ export default function ProjectsSection() {
                               <path d="M12 18h.01" />
                             </svg>
                           </div>
+
                           <span className="text-xs font-medium text-[var(--projects-muted)]">
                             Project preview coming soon
                           </span>
@@ -194,7 +208,7 @@ export default function ProjectsSection() {
                     </div>
 
                     {/* Technology stack */}
-                    <div className="mb-5 flex flex-wrap gap-2">
+                    <div className="pointer-events-none relative z-10 mb-5 flex flex-wrap gap-2">
                       {project.techStack.map((tech) => (
                         <span
                           key={tech.name}
@@ -204,7 +218,7 @@ export default function ProjectsSection() {
                             aria-hidden="true"
                             className="h-3.5 w-3.5 shrink-0"
                             viewBox="0 0 24 24"
-                            fill={`#${("colorOverride" in tech ? tech.colorOverride : undefined) ?? tech.icon.hex}`}
+                            fill={`#${("colorOverride" in tech ? tech.colorOverride : undefined) ?? tech.icon.hex} `}
                           >
                             <path d={tech.icon.path} />
                           </svg>
@@ -213,8 +227,8 @@ export default function ProjectsSection() {
                       ))}
                     </div>
 
-                    {/* Available actions only */}
-                    <div className="mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-[var(--projects-border)] pt-4 text-sm font-semibold">
+                    {/* Actions stay above the card-wide link */}
+                    <div className="relative z-20 mt-auto flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-[var(--projects-border)] pt-4 text-sm font-semibold">
                       {project.liveLink && (
                         <a
                           href={project.liveLink}
@@ -244,9 +258,23 @@ export default function ProjectsSection() {
                       {project.caseStudyLink && (
                         <Link
                           href={project.caseStudyLink}
-                          className="text-[var(--projects-muted)] transition-colors hover:text-[var(--projects-text)]"
+                          className="inline-flex items-center gap-1.5 text-[var(--projects-muted)] transition-colors hover:text-[var(--projects-accent)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--projects-accent)]"
                         >
                           Case study
+                          <svg
+                            aria-hidden="true"
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="1.8"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M7 17 17 7" />
+                            <path d="M7 7h10v10" />
+                          </svg>
                         </Link>
                       )}
 
@@ -255,20 +283,27 @@ export default function ProjectsSection() {
                           href={project.githubLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-[var(--projects-muted)] transition-colors hover:text-[var(--projects-text)]"
+                          className="text-[var(--projects-muted)] transition-colors hover:text-[var(--projects-text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--projects-accent)]"
                         >
                           Source code
                         </a>
+                      )}
+
+                      {!project.liveLink && !project.caseStudyLink && (
+                        <span className="text-xs font-medium text-[var(--projects-muted)]">
+                          In development
+                        </span>
                       )}
                     </div>
                   </article>
                 ))}
               </div>
 
+              {/* Mobile: View all projects */}
               <div className="mt-8 flex justify-center lg:hidden">
                 <Link
                   href="/projects"
-                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--projects-border)] px-6 py-3.5 text-sm font-medium transition-colors hover:bg-[var(--projects-surface)] sm:w-auto"
+                  className="inline-flex w-full items-center justify-center gap-2 rounded-full border border-[var(--projects-border)] px-6 py-3.5 text-sm font-medium transition-colors hover:bg-[var(--projects-surface)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--projects-accent)] sm:w-auto"
                 >
                   View all projects
                   <svg

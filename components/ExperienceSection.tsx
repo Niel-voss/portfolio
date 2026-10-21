@@ -158,7 +158,7 @@ export default function ExperienceSection() {
             </p>
 
             <Link
-              href="/resume.pdf"
+              href="/Thomas_Daniel_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex min-h-11 items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-sm font-semibold transition duration-200 hover:-translate-y-0.5"
@@ -168,7 +168,7 @@ export default function ExperienceSection() {
                 borderColor: "var(--portfolio-border)",
               }}
             >
-              View full resume
+              Download CV
               <svg
                 width="16"
                 height="16"

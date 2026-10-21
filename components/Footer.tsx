@@ -4,10 +4,10 @@
 import Link from "next/link";
 
 const socialLinks = [
-  { name: "GitHub", href: "https://github.com", icon: "github" },
+  { name: "GitHub", href: "https://github.com/Niel-voss", icon: "github" },
   { name: "X", href: "https://x.com", icon: "x" },
   { name: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-  { name: "Email", href: "mailto:td0864691@gmail.com", icon: "email" },
+  { name: "Email", href: "mailto:td0864691@gmail.com?subject=Developer%20Opportunity", icon: "email" },
 ];
 
 function BrandLogo({ small = false }: { small?: boolean }) {
@@ -196,7 +196,7 @@ export default function Footer() {
 
             <div className="flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
               <Link
-                href="/contact"
+                href="mailto:td0864691@gmail.com?subject=Developer%20Opportunity"
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide text-white transition-all hover:-translate-y-0.5 active:scale-95 sm:w-auto"
                 style={{
                   background: "var(--portfolio-accent)",
@@ -211,7 +211,7 @@ export default function Footer() {
               </Link>
 
               <a
-                href="/cv.pdf"
+                href="/Thomas_Daniel_CV"
                 download
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full border px-7 py-3.5 text-sm font-medium tracking-wide transition-all hover:-translate-y-0.5 active:scale-95 sm:w-auto"
                 style={{
@@ -288,7 +288,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 ["Experience", "/#experience"],
-                ["Contact", "/contact"],
+                ["Contact", "mailto:td0864691@gmail.com?subject=Developer%20Opportunity"],
               ].map(([label, href]) => (
                 <li key={label}>
                   <Link href={href} className="transition-colors hover:text-[var(--portfolio-accent)]" style={linkText}>
