@@ -800,18 +800,19 @@ export default function UniversityRbacCaseStudyPage() {
 
           <div className="space-y-5 text-sm leading-7 sm:text-base">
             <p style={{ color: theme.muted }}>
-              One issue I encountered was placing a database query in a shared
-              layout. When the database became unavailable or needed a restart,
-              the dependency could affect a much wider part of the application
-              than the specific feature that required the data.
+              One architectural issue I encountered involved placing a database query in a shared layout. 
+              Because the layout was used across multiple pages, database availability became a 
+              broader application concern rather than an isolated dependency of the feature that 
+              required the data.
             </p>
 
             <p style={{ color: theme.muted }}>
-              I do not want to overstate the exact fix because I no longer
-              remember every implementation detail. The experience nevertheless
-              exposed an important architectural concern: a shared layout can
-              become a broad failure point when it depends on a database query
-              that every page must wait for.
+          This experience highlighted the importance of carefully 
+              managing database dependencies in shared components. 
+              Queries that are essential to a specific feature should not 
+              unnecessarily become dependencies for unrelated pages, as this can 
+              increase the potential impact of database outages and affect overall 
+            
             </p>
 
             <div
