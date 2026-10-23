@@ -52,7 +52,7 @@ export default function GetInTouchButton({
   }
 
   return (
-    <Link href="mailto:td0864691@gmail.com" className={baseStyles}>
+    <Link href="mailto:thomasdaniel8373@gmail.com" className={baseStyles}>
       {buttonContent}
     </Link>
   );

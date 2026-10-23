@@ -14,11 +14,11 @@ const socialLinks = [
     href: "https://x.com/Niel_voss40202",
     path: "M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z",
   },
-  {
-    name: "LinkedIn",
-    href: "https://linkedin.com",
-    path: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z",
-  },
+  // {
+  //   name: "LinkedIn",
+  //   href: "https://linkedin.com",
+  //   path: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z",
+  // },
 ];
 
 export default function HeroSection() {
@@ -99,7 +99,7 @@ export default function HeroSection() {
             ))}
 
             <a
-              href="mailto:td0864691@gmail.com?subject=Developer%20Opportunity"
+              href="mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity"
               aria-label="Email me"
               className="inline-flex h-12 w-12 items-center justify-center rounded-full transition-all duration-200 hover:scale-110 hover:bg-[var(--hero-hover)] hover:text-[var(--hero-text)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--hero-accent)] sm:h-12 sm:w-12 lg:h-10 lg:w-10"
             >

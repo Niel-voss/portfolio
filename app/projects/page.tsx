@@ -254,7 +254,7 @@ export default function ProjectsPage() {
         >
           Interested in working together?{" "}
           <Link
-            href="mailto:td0864691@gmail.com?subject=Developer%20Opportunity" className="group inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide text-white transition-all hover:-translate-y-0.5 active:scale-95 sm:w-auto"
+            href="mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity" className="group inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide text-white transition-all hover:-translate-y-0.5 active:scale-95 sm:w-auto"
             style={{
               background: "var(--portfolio-accent)",
               boxShadow: "0 0 20px var(--portfolio-accent-soft)",

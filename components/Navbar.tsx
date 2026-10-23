@@ -19,7 +19,7 @@ export default function Navbar() {
     { name: "Projects", href: "/#projects" },
     { name: "Skills", href: "/#skills" },
     { name: "Experience", href: "/#experience" },
-    { name: "Contact", href: "mailto:td0864691@gmail.com" },
+    { name: "Contact", href: "mailto:thomasdaniel8373@gmail.com" },
   ];
 
   // Restore the saved theme when the navbar mounts.

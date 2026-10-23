@@ -5,9 +5,9 @@ import Link from "next/link";
 
 const socialLinks = [
   { name: "GitHub", href: "https://github.com/Niel-voss", icon: "github" },
-  { name: "X", href: "https://x.com", icon: "x" },
+  { name: "X", href: "https://x.com/Niel_voss40202", icon: "x" },
   { name: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-  { name: "Email", href: "mailto:td0864691@gmail.com?subject=Developer%20Opportunity", icon: "email" },
+  { name: "Email", href: "mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity", icon: "email" },
 ];
 
 function BrandLogo({ small = false }: { small?: boolean }) {
@@ -64,13 +64,13 @@ function SocialIcon({ icon }: { icon: string }) {
     );
   }
 
-  if (icon === "linkedin") {
-    return (
-      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M20.45 0H3.55C1.59 0 0 1.55 0 3.45v17.1C0 22.45 1.59 24 3.55 24h16.9C22.41 24 24 22.45 24 20.55V3.45C24 1.55 22.41 0 20.45 0ZM7.12 20.4H3.56V9h3.56ZM5.34 7.44a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM20.44 20.4h-3.55v-5.55c0-1.32-.03-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.92v5.65H9.38V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.36-1.85c3.59 0 4.25 2.36 4.25 5.43Z" />
-      </svg>
-    );
-  }
+  // if (icon === "linkedin") {
+  //   return (
+  //     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+  //       <path d="M20.45 0H3.55C1.59 0 0 1.55 0 3.45v17.1C0 22.45 1.59 24 3.55 24h16.9C22.41 24 24 22.45 24 20.55V3.45C24 1.55 22.41 0 20.45 0ZM7.12 20.4H3.56V9h3.56ZM5.34 7.44a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM20.44 20.4h-3.55v-5.55c0-1.32-.03-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.92v5.65H9.38V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.36-1.85c3.59 0 4.25 2.36 4.25 5.43Z" />
+  //     </svg>
+  //   );
+  // }
 
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -196,7 +196,7 @@ export default function Footer() {
 
             <div className="flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
               <Link
-                href="mailto:td0864691@gmail.com?subject=Developer%20Opportunity"
+                href="mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity"
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide text-white transition-all hover:-translate-y-0.5 active:scale-95 sm:w-auto"
                 style={{
                   background: "var(--portfolio-accent)",
@@ -211,7 +211,7 @@ export default function Footer() {
               </Link>
 
               <a
-                href="/Thomas_Daniel_CV"
+                href="/Thomas_Daniel_CV.pdf"
                 download
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full border px-7 py-3.5 text-sm font-medium tracking-wide transition-all hover:-translate-y-0.5 active:scale-95 sm:w-auto"
                 style={{
@@ -288,7 +288,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 ["Experience", "/#experience"],
-                ["Contact", "mailto:td0864691@gmail.com?subject=Developer%20Opportunity"],
+                ["Contact", "mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity"],
               ].map(([label, href]) => (
                 <li key={label}>
                   <Link href={href} className="transition-colors hover:text-[var(--portfolio-accent)]" style={linkText}>
@@ -307,7 +307,7 @@ export default function Footer() {
               Open to new opportunities and interesting projects.
             </p>
             <Link
-              href="/contact"
+              href="mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity"
               className="inline-flex items-center gap-2 rounded-full border px-6 py-2.5 text-sm font-medium transition-all hover:border-[var(--portfolio-accent)] hover:text-[var(--portfolio-accent)]"
               style={{
                 borderColor: "var(--portfolio-border)",
