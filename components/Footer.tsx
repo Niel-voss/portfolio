@@ -1,4 +1,3 @@
-
 "use client";
 
 import Link from "next/link";
@@ -6,8 +5,13 @@ import Link from "next/link";
 const socialLinks = [
   { name: "GitHub", href: "https://github.com/Niel-voss", icon: "github" },
   { name: "X", href: "https://x.com/Niel_voss40202", icon: "x" },
-  { name: "LinkedIn", href: "https://linkedin.com", icon: "linkedin" },
-  { name: "Email", href: "mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity", icon: "email" },
+  // LinkedIn is temporarily disabled. Uncomment this when your profile is ready.
+  // { name: "LinkedIn", href: "https://www.linkedin.com/in/YOUR_PROFILE", icon: "linkedin" },
+  {
+    name: "Email",
+    href: "mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity",
+    icon: "email",
+  },
 ];
 
 function BrandLogo({ small = false }: { small?: boolean }) {
@@ -64,16 +68,27 @@ function SocialIcon({ icon }: { icon: string }) {
     );
   }
 
-  // if (icon === "linkedin") {
-  //   return (
-  //     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-  //       <path d="M20.45 0H3.55C1.59 0 0 1.55 0 3.45v17.1C0 22.45 1.59 24 3.55 24h16.9C22.41 24 24 22.45 24 20.55V3.45C24 1.55 22.41 0 20.45 0ZM7.12 20.4H3.56V9h3.56ZM5.34 7.44a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM20.44 20.4h-3.55v-5.55c0-1.32-.03-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.92v5.65H9.38V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.36-1.85c3.59 0 4.25 2.36 4.25 5.43Z" />
-  //     </svg>
-  //   );
-  // }
+  /* LinkedIn icon kept here for later. Uncomment when re-enabling LinkedIn.
+  if (icon === "linkedin") {
+    return (
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M20.45 0H3.55C1.59 0 0 1.55 0 3.45v17.1C0 22.45 1.59 24 3.55 24h16.9C22.41 24 24 22.45 24 20.55V3.45C24 1.55 22.41 0 20.45 0ZM7.12 20.4H3.56V9h3.56ZM5.34 7.44a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM20.44 20.4h-3.55v-5.55c0-1.32-.03-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.92v5.65H9.38V9h3.41v1.56h.05a3.74 3.74 0 0 1 3.36-1.85c3.59 0 4.25 2.36 4.25 5.43Z" />
+      </svg>
+    );
+  }
+  */
 
+  // Email icon (the only fallback icon).
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
       <rect x="3" y="5" width="18" height="14" rx="2" />
       <path d="m3 7 9 6 9-6" />
     </svg>
@@ -93,6 +108,8 @@ export default function Footer() {
 
   const mutedText = { color: "var(--portfolio-muted)" };
   const linkText = { color: "var(--portfolio-muted-strong)" };
+  const contactEmail =
+    "mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity";
 
   return (
     <footer
@@ -104,7 +121,6 @@ export default function Footer() {
       }}
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-10">
-
         {/* Contact CTA */}
         <div
           className="relative mb-16 flex w-full flex-col items-center overflow-hidden rounded-3xl border px-6 py-16 text-center md:mb-20 md:p-20"
@@ -121,7 +137,8 @@ export default function Footer() {
               `,
               backgroundSize: "40px 40px",
               maskImage: "radial-gradient(ellipse at center, transparent 15%, black 85%)",
-              WebkitMaskImage: "radial-gradient(ellipse at center, transparent 15%, black 85%)",
+              WebkitMaskImage:
+                "radial-gradient(ellipse at center, transparent 15%, black 85%)",
             }}
           />
 
@@ -156,20 +173,32 @@ export default function Footer() {
             <path d="M-100 350C300 450 600 0 1100 300" stroke="url(#footer-orbit-two)" strokeWidth="1" />
           </svg>
 
-          <span className="pointer-events-none absolute left-4 top-[20%] z-0 select-none font-mono text-3xl font-semibold opacity-50 md:left-12 md:top-[30%] md:text-[2.75rem]" style={{ color: "var(--portfolio-accent)" }}>
+          <span
+            className="pointer-events-none absolute left-4 top-[20%] z-0 select-none font-mono text-3xl font-semibold opacity-50 md:left-12 md:top-[30%] md:text-[2.75rem]"
+            style={{ color: "var(--portfolio-accent)" }}
+          >
             {"</>"}
           </span>
-          <span className="pointer-events-none absolute bottom-[20%] right-4 z-0 select-none font-mono text-3xl font-semibold opacity-50 md:bottom-[25%] md:right-12 md:text-[2.75rem]" style={{ color: "var(--portfolio-accent)" }}>
+          <span
+            className="pointer-events-none absolute bottom-[20%] right-4 z-0 select-none font-mono text-3xl font-semibold opacity-50 md:bottom-[25%] md:right-12 md:text-[2.75rem]"
+            style={{ color: "var(--portfolio-accent)" }}
+          >
             {"</>"}
           </span>
 
           <div
             className="absolute left-[15%] top-[25%] z-0 h-1.5 w-1.5 rounded-full"
-            style={{ background: "var(--portfolio-accent)", boxShadow: "0 0 12px 3px var(--portfolio-accent-soft)" }}
+            style={{
+              background: "var(--portfolio-accent)",
+              boxShadow: "0 0 12px 3px var(--portfolio-accent-soft)",
+            }}
           />
           <div
             className="absolute bottom-[30%] right-[20%] z-0 h-1.5 w-1.5 rounded-full"
-            style={{ background: "var(--portfolio-accent)", boxShadow: "0 0 12px 3px var(--portfolio-accent-soft)" }}
+            style={{
+              background: "var(--portfolio-accent)",
+              boxShadow: "0 0 12px 3px var(--portfolio-accent-soft)",
+            }}
           />
 
           {/* CTA foreground */}
@@ -196,7 +225,7 @@ export default function Footer() {
 
             <div className="flex w-full flex-col items-center justify-center gap-4 sm:w-auto sm:flex-row">
               <Link
-                href="mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity"
+                href={contactEmail}
                 className="group inline-flex w-full items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-medium tracking-wide text-white transition-all hover:-translate-y-0.5 active:scale-95 sm:w-auto"
                 style={{
                   background: "var(--portfolio-accent)",
@@ -204,7 +233,18 @@ export default function Footer() {
                 }}
               >
                 Get in touch
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" aria-hidden="true">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  aria-hidden="true"
+                >
                   <line x1="22" y1="2" x2="11" y2="13" />
                   <polygon points="22 2 15 22 11 13 2 9 22 2" />
                 </svg>
@@ -221,7 +261,18 @@ export default function Footer() {
                 }}
               >
                 Download CV
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-y-0.5" aria-hidden="true">
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="transition-transform duration-300 group-hover:translate-y-0.5"
+                  aria-hidden="true"
+                >
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                   <polyline points="7 10 12 15 17 10" />
                   <line x1="12" y1="15" x2="12" y2="3" />
@@ -273,7 +324,11 @@ export default function Footer() {
                 ["Skills", "/#skills"],
               ].map(([label, href]) => (
                 <li key={label}>
-                  <Link href={href} className="transition-colors hover:text-[var(--portfolio-accent)]" style={linkText}>
+                  <Link
+                    href={href}
+                    className="transition-colors hover:text-[var(--portfolio-accent)]"
+                    style={linkText}
+                  >
                     {label}
                   </Link>
                 </li>
@@ -288,12 +343,26 @@ export default function Footer() {
             <ul className="flex flex-col gap-3 text-sm">
               {[
                 ["Experience", "/#experience"],
-                ["Contact", "mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity"],
+                ["Contact", contactEmail],
               ].map(([label, href]) => (
                 <li key={label}>
-                  <Link href={href} className="transition-colors hover:text-[var(--portfolio-accent)]" style={linkText}>
-                    {label}
-                  </Link>
+                  {href.startsWith("mailto:") ? (
+                    <a
+                      href={href}
+                      className="transition-colors hover:text-[var(--portfolio-accent)]"
+                      style={linkText}
+                    >
+                      {label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={href}
+                      className="transition-colors hover:text-[var(--portfolio-accent)]"
+                      style={linkText}
+                    >
+                      {label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -306,8 +375,8 @@ export default function Footer() {
             <p className="mb-6 text-sm leading-relaxed" style={mutedText}>
               Open to new opportunities and interesting projects.
             </p>
-            <Link
-              href="mailto:thomasdaniel8373@gmail.com?subject=Developer%20Opportunity"
+            <a
+              href={contactEmail}
               className="inline-flex items-center gap-2 rounded-full border px-6 py-2.5 text-sm font-medium transition-all hover:border-[var(--portfolio-accent)] hover:text-[var(--portfolio-accent)]"
               style={{
                 borderColor: "var(--portfolio-border)",
@@ -315,11 +384,21 @@ export default function Footer() {
               }}
             >
               Get in touch
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
                 <line x1="5" y1="12" x2="19" y2="12" />
                 <polyline points="12 5 19 12 12 19" />
               </svg>
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -341,7 +420,17 @@ export default function Footer() {
               className="flex h-8 w-8 items-center justify-center rounded-full border transition-all group-hover:border-[var(--portfolio-accent)] group-hover:bg-[var(--portfolio-accent-soft)]"
               style={{ borderColor: "var(--portfolio-border)" }}
             >
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+              >
                 <line x1="12" y1="19" x2="12" y2="5" />
                 <polyline points="5 12 12 5 19 12" />
               </svg>
