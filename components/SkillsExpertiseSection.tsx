@@ -34,7 +34,6 @@ const skillCategories = [
       "Node.js",
       "Express",
       "REST APIs",
-      "GraphQL",
       "Next.js API",
       "JWT",
       "Bcrypt",
@@ -52,12 +51,9 @@ const skillCategories = [
     skills: [
       "PostgreSQL",
       "MongoDB",
-      "Prisma",
+      "Prisma ORM",
       "Neon",
-      "Firebase Auth",
-      "Supabase",
       "Redis",
-      "Drizzle ORM",
     ],
   },
   {

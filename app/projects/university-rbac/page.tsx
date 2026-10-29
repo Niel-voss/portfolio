@@ -217,9 +217,7 @@ export default function UniversityRbacCaseStudyPage() {
               className="mt-6 max-w-xl text-base leading-8 sm:text-lg"
               style={{ color: theme.muted }}
             >
-              A university portal exploring dynamic role-based access control,
-              centralized account management, and administrative visibility
-              without relying on manual database role changes.
+              A demo university management system showcasing dynamic role-based access control (RBAC), centralized account management, and administrative oversight without requiring manual database-level role changes.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -800,19 +798,19 @@ export default function UniversityRbacCaseStudyPage() {
 
           <div className="space-y-5 text-sm leading-7 sm:text-base">
             <p style={{ color: theme.muted }}>
-              One architectural issue I encountered involved placing a database query in a shared layout. 
-              Because the layout was used across multiple pages, database availability became a 
-              broader application concern rather than an isolated dependency of the feature that 
+              One architectural issue I encountered involved placing a database query in a shared layout.
+              Because the layout was used across multiple pages, database availability became a
+              broader application concern rather than an isolated dependency of the feature that
               required the data.
             </p>
 
             <p style={{ color: theme.muted }}>
-          This experience highlighted the importance of carefully 
-              managing database dependencies in shared components. 
-              Queries that are essential to a specific feature should not 
-              unnecessarily become dependencies for unrelated pages, as this can 
-              increase the potential impact of database outages and affect overall 
-            
+              This experience highlighted the importance of carefully
+              managing database dependencies in shared components.
+              Queries that are essential to a specific feature should not
+              unnecessarily become dependencies for unrelated pages, as this can
+              increase the potential impact of database outages and affect overall
+
             </p>
 
             <div
